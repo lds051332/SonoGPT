@@ -1,0 +1,62 @@
+{
+  "dataset_name": "sonogpt_single_nodule_generate_v1",
+  "dataset_version": "1.1.0",
+  "dimension_order": [
+    "transverse_mm",
+    "anteroposterior_mm",
+    "longitudinal_mm_if_present"
+  ],
+  "files": {
+    "statistics": {
+      "bytes": 3130,
+      "path": "statistics.json",
+      "records": null,
+      "sha256": "02e02e8122e596b886a434c8605478cf5c5d485b89c126bf6009122438f58077"
+    },
+    "test_heldout_templates": {
+      "bytes": 9475,
+      "path": "test_heldout_templates.jsonl",
+      "records": 10,
+      "sha256": "e7d1a81f0fe2f2e1457a7bd449538d2f813634d0882cd0f33c3aa43f3284b291"
+    },
+    "test_seen_templates": {
+      "bytes": 28591,
+      "path": "test_seen_templates.jsonl",
+      "records": 30,
+      "sha256": "a92671ca70ad7b2dcd86a108ed06063074820f29694781e5fe6f526fb18b7cc7"
+    },
+    "train": {
+      "bytes": 227471,
+      "path": "train.jsonl",
+      "records": 240,
+      "sha256": "003a075fc2ce3205b185dec511809709571dd1f9aaed5b161bbfc4706b4ed5bc"
+    },
+    "validation": {
+      "bytes": 28150,
+      "path": "validation.jsonl",
+      "records": 30,
+      "sha256": "8faba02fafcd37c0e2f7826970cd8a3a9aa957c63a7ad16a224f0ae705bb50d4"
+    }
+  },
+  "generator_version": "1.1.0",
+  "heldout_template_families": [
+    "flow_first_v2"
+  ],
+  "manifest_version": "1.1.0",
+  "renderer_version": "1.1.0",
+  "schema_versions": [
+    "1.0.0"
+  ],
+  "seeds": [
+    20260824
+  ],
+  "seen_template_families": [
+    "descriptor_first_v2",
+    "dimensions_first_v2",
+    "location_first_v2"
+  ],
+  "semantic_case_count": 100,
+  "source": "synthetic",
+  "synthetic_constraints_version": "1.1.0",
+  "task": "generate"
+}

@@ -1,0 +1,12 @@
+{
+  "bias": false,
+  "config_version": "1.0.0",
+  "d_ff": 1536,
+  "d_model": 384,
+  "dropout": 0.1,
+  "max_seq_len": 384,
+  "n_heads": 6,
+  "n_layers": 8,
+  "tie_embeddings": true,
+  "vocab_size": 1807
+}

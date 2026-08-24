@@ -1,0 +1,127 @@
+{
+  "benchmark_version": "1.0.0",
+  "created_at_utc": "2026-08-24T14:01:03.504860+00:00",
+  "device": "NVIDIA GeForce RTX 2060 Laptop",
+  "effective_batch_size": 32,
+  "max_gpu_temperature_c": 85.0,
+  "recommended_gradient_accumulation_steps": 2,
+  "recommended_micro_batch_size": 16,
+  "results": [
+    {
+      "cuda_memory": {
+        "max_allocated_mib": 366.53369140625,
+        "max_reserved_mib": 386.0
+      },
+      "effective_batch_size": 32,
+      "elapsed_seconds": 34.29,
+      "gpu_telemetry": {
+        "max_memory_used_mib": 1265.0,
+        "max_power_w": 68.91,
+        "max_temperature_c": 72.0,
+        "max_utilization_percent": 46.0,
+        "mean_power_w": 59.4575,
+        "mean_temperature_c": 68.03125,
+        "mean_utilization_percent": 40.875,
+        "query_errors": 0,
+        "sample_count": 32
+      },
+      "gradient_accumulation_steps": 8,
+      "micro_batch_size": 4,
+      "output_directory": "D:\\Work\\SonoGPT\\artifacts\\training\\rtx2060_batch_ab_20260824\\micro_4",
+      "runtime": {
+        "applied_optimizer_steps": 100,
+        "attempted_optimizer_steps": 100,
+        "example_count": 3200,
+        "examples_per_second": 104.29365607291322,
+        "target_token_count": 79401,
+        "target_tokens_per_second": 2587.8189330766822,
+        "training_step_seconds": 30.68259490071796
+      },
+      "skipped_optimizer_steps": 0,
+      "validation": {
+        "loss": 1.5885724498142448,
+        "sample_count": 1500,
+        "target_token_count": 36871,
+        "token_accuracy": 0.5321255187003336
+      }
+    },
+    {
+      "cuda_memory": {
+        "max_allocated_mib": 450.79052734375,
+        "max_reserved_mib": 490.0
+      },
+      "effective_batch_size": 32,
+      "elapsed_seconds": 19.932,
+      "gpu_telemetry": {
+        "max_memory_used_mib": 1344.0,
+        "max_power_w": 78.42,
+        "max_temperature_c": 74.0,
+        "max_utilization_percent": 55.0,
+        "mean_power_w": 69.76578947368421,
+        "mean_temperature_c": 72.63157894736842,
+        "mean_utilization_percent": 46.78947368421053,
+        "query_errors": 0,
+        "sample_count": 19
+      },
+      "gradient_accumulation_steps": 4,
+      "micro_batch_size": 8,
+      "output_directory": "D:\\Work\\SonoGPT\\artifacts\\training\\rtx2060_batch_ab_20260824\\micro_8",
+      "runtime": {
+        "applied_optimizer_steps": 100,
+        "attempted_optimizer_steps": 100,
+        "example_count": 3200,
+        "examples_per_second": 194.72608141309675,
+        "target_token_count": 79401,
+        "target_tokens_per_second": 4831.701746962905,
+        "training_step_seconds": 16.43334049952682
+      },
+      "skipped_optimizer_steps": 0,
+      "validation": {
+        "loss": 1.5679799818351805,
+        "sample_count": 1500,
+        "target_token_count": 36871,
+        "token_accuracy": 0.5300913997450571
+      }
+    },
+    {
+      "cuda_memory": {
+        "max_allocated_mib": 622.56982421875,
+        "max_reserved_mib": 674.0
+      },
+      "effective_batch_size": 32,
+      "elapsed_seconds": 11.849,
+      "gpu_telemetry": {
+        "max_memory_used_mib": 1545.0,
+        "max_power_w": 105.61,
+        "max_temperature_c": 78.0,
+        "max_utilization_percent": 77.0,
+        "mean_power_w": 83.785,
+        "mean_temperature_c": 75.33333333333333,
+        "mean_utilization_percent": 62.583333333333336,
+        "query_errors": 0,
+        "sample_count": 12
+      },
+      "gradient_accumulation_steps": 2,
+      "micro_batch_size": 16,
+      "output_directory": "D:\\Work\\SonoGPT\\artifacts\\training\\rtx2060_batch_ab_20260824\\micro_16",
+      "runtime": {
+        "applied_optimizer_steps": 100,
+        "attempted_optimizer_steps": 100,
+        "example_count": 3200,
+        "examples_per_second": 368.7130648727152,
+        "target_token_count": 79401,
+        "target_tokens_per_second": 9148.808144987019,
+        "training_step_seconds": 8.678835400380194
+      },
+      "skipped_optimizer_steps": 0,
+      "validation": {
+        "loss": 1.5515274285448923,
+        "sample_count": 1500,
+        "target_token_count": 36871,
+        "token_accuracy": 0.5319356675978412
+      }
+    }
+  ],
+  "selection_metric": "target_tokens_per_second",
+  "steps_per_variant": 100
+}

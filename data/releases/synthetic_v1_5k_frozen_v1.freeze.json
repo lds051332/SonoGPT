@@ -1,0 +1,97 @@
+{
+  "artifacts": {
+    "data_directory": "data/processed/synthetic_v1_5k_candidate_v2",
+    "data_manifest": {
+      "path": "data/manifests/synthetic_v1_5k_candidate_v2.manifest.json",
+      "sha256": "fe7683dfff397c2c4f3cb6c6a27fda2386b7e6f03150b1e298913576c7f8bc29"
+    },
+    "dataset_files": {
+      "statistics": {
+        "bytes": 3256,
+        "path": "statistics.json",
+        "records": null,
+        "sha256": "ba0d89d265135295a4d5ebdb93131574cbac004dc22f565081fd5af197475462"
+      },
+      "test_heldout_templates": {
+        "bytes": 470197,
+        "path": "test_heldout_templates.jsonl",
+        "records": 500,
+        "sha256": "7fc25ce608a818d26c8eeab60b2f2138abd2db0b3cf03edada5d363b9eae3bf0"
+      },
+      "test_seen_templates": {
+        "bytes": 1418795,
+        "path": "test_seen_templates.jsonl",
+        "records": 1500,
+        "sha256": "40442b8ff1f160336d3b0e5531988f7ad18abb5e9023a113dafda0ba700f86d6"
+      },
+      "train": {
+        "bytes": 11405665,
+        "path": "train.jsonl",
+        "records": 12000,
+        "sha256": "525ab3df2584fc68d891fd398bd412aa4b864f2113bdbc8d06bd3f2fb9bae58f"
+      },
+      "validation": {
+        "bytes": 1425155,
+        "path": "validation.jsonl",
+        "records": 1500,
+        "sha256": "afc8ed0eb5cd07ed4d6ba97f49c4fc284958833870718a4d6c962f3ba644f327"
+      }
+    },
+    "tokenizer_manifest": {
+      "path": "artifacts/tokenizers/sonogpt_bpe_1807_candidate_v2/tokenizer_manifest.json",
+      "sha256": "ce80b0e60db9d53ac107bae06a6b4921b656c8bfed69c7b6913fe9c404570f1f"
+    },
+    "tokenizer_model": {
+      "path": "artifacts/tokenizers/sonogpt_bpe_1807_candidate_v2/sonogpt_bpe.model",
+      "sha256": "743af34aa2d8bec332f82ce6756cd1458e9687244def23ece5c5b60ee8883ac2"
+    }
+  },
+  "created_at_utc": "2026-08-24T14:31:20.128265+00:00",
+  "dataset_identity": {
+    "dataset_name": "sonogpt_single_nodule_generate_v1",
+    "dataset_version": "1.1.0",
+    "generator_version": "1.1.0",
+    "manifest_version": "1.1.0",
+    "renderer_version": "1.1.0",
+    "schema_versions": [
+      "1.0.0"
+    ],
+    "semantic_case_count": 5000,
+    "synthetic_constraints_version": "1.1.0"
+  },
+  "evaluation_scope": {
+    "challenge_set_included": false,
+    "challenge_set_status": "not_created",
+    "included_splits": [
+      "test_heldout_templates",
+      "test_seen_templates",
+      "train",
+      "validation"
+    ]
+  },
+  "freeze_id": "synthetic_v1_5k_frozen_v1",
+  "freeze_record_sha256": "113522f93475a3f09502da0254a7b78107c8a265b6b998971b9e5824efd1a3c7",
+  "freeze_record_version": "1.0.0",
+  "professional_review": {
+    "attestation_source": "project_owner_reported_external_review",
+    "outcome": "approved_no_changes",
+    "review_date": "2026-08-24",
+    "review_sample_count": 50,
+    "reviewer_identity_recorded": false,
+    "reviewer_role": "licensed_ultrasound_physician",
+    "unresolved_issue_count": 0
+  },
+  "provenance_file_sha256": {
+    "scripts/generate_data.py": "a0df07a1feb6bf5522529fb0d6e2e8ed6e3f07410059ed9cd98fd35658b86ce7",
+    "scripts/train_tokenizer.py": "5fd57d68a211edeefd3311d7761b8bac2117e034c8a0e55a72eb79c4931282de",
+    "src/sonogpt/baselines/template_report.py": "ed25a8411d2b368bc0487c8bc392e13c37d3beb0d74da20d27753522e7c3df58",
+    "src/sonogpt/data/constraints.py": "7a16c9ad4bbc8f04bb048e90c9c0546cef436e4ab3c000c525260977837faff4",
+    "src/sonogpt/data/manifest.py": "8af7adc5d2a44d455e1c966b6eebe71ed9ff19f91b01e66f84f5477081f04a3c",
+    "src/sonogpt/data/renderers.py": "7af615bd3b1e0c8ea329188087ed167fdec33aca1064b1c3993f91752babeddf",
+    "src/sonogpt/data/semantic_generator.py": "2ce5132bcab47bc1ce65c2f4a9314a0f51d87c62411f455fc390cd7ffe31cdc3",
+    "src/sonogpt/data/split.py": "51b936d9cc004d36c15ea404dc07611f773a2922fde74b183d7c6285400c2d98",
+    "src/sonogpt/schemas/domain.py": "6f79ac1ec8cf8e9c0ffa917cc6488143b06b15066d673a9a7917f97b9fd274bc",
+    "src/sonogpt/tokenizer/sentencepiece_bpe.py": "f1278b07c4d9e04a4185f84f0e2be6d927ff4937615c385342140c43ff663fa1"
+  },
+  "status": "frozen"
+}

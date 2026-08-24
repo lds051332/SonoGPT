@@ -1,0 +1,63 @@
+{
+  "authoring": {
+    "clinical_data": false,
+    "human_authored": false,
+    "intended_use": "learning_demo_evaluation_only",
+    "method": "ai_simulated_manual_independent_v1",
+    "source": "simulated_nonclinical"
+  },
+  "builder": {
+    "path": "scripts/build_simulated_challenge.py",
+    "sha256": "a0f2953ee63f702d1a0f63ce36938ab1af3c50e00e6f5e110e53f92a35380b9a"
+  },
+  "challenge_file": {
+    "bytes": 30405,
+    "path": "data/challenges/simulated_human_challenge_v1.jsonl",
+    "records": 30,
+    "sha256": "43acba266a8a2b8b902a646cdbd3db461becfa7df089292d8d23699eea1b9653"
+  },
+  "challenge_freeze_version": "1.0.0",
+  "challenge_version": "1.0.0",
+  "created_at_utc": "2026-08-24T14:39:25.438371+00:00",
+  "freeze_id": "simulated_human_challenge_v1",
+  "freeze_payload_sha256": "be9d4b2f0d71170f649ada7177534c04d4f408e38ed40d12e12327561afd0acd",
+  "linked_training_freeze": {
+    "freeze_id": "synthetic_v1_5k_frozen_v1",
+    "freeze_payload_sha256": "113522f93475a3f09502da0254a7b78107c8a265b6b998971b9e5824efd1a3c7",
+    "freeze_record_sha256": "0947163809972d3e6d5db5ea0e8957c13f6f514e778743faf66c240a9f7bd58a",
+    "path": "data/releases/synthetic_v1_5k_frozen_v1.freeze.json"
+  },
+  "statistics": {
+    "difficulty_tag_counts": {
+      "adverse_display_condition": 3,
+      "benign_pattern": 5,
+      "decimal_dimensions": 3,
+      "explicit_negative_flow": 7,
+      "extrathyroidal_extension": 2,
+      "isthmus": 4,
+      "large_nodule": 1,
+      "lexical_paraphrase": 9,
+      "lymph_node_statement": 7,
+      "missing_fields": 1,
+      "missing_measurement": 3,
+      "no_lymph_node_statement": 2,
+      "not_mentioned_state": 2,
+      "partial_description": 7,
+      "peripheral_calcification": 3,
+      "small_nodule": 1,
+      "suspicious_features": 6,
+      "taller_than_wide": 2,
+      "three_dimensions": 9,
+      "unknown_state": 6,
+      "unseen_word_order": 7
+    },
+    "sample_count": 30,
+    "template_exact_match_count": 0,
+    "training_report_overlap_count": 0,
+    "training_semantic_overlap_count": 0,
+    "unique_semantic_case_count": 30
+  },
+  "status": "frozen",
+  "tokenizer_training_use_prohibited": true,
+  "training_use_prohibited": true
+}

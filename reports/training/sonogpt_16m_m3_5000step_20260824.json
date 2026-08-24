@@ -1,0 +1,36 @@
+{
+  "best_checkpoint": "artifacts/training/sonogpt_16m_m3/step_00004900.pt",
+  "best_validation_loss": 0.0569645016047769,
+  "device": "NVIDIA GeForce RTX 2060",
+  "elapsed_seconds": 826.407,
+  "final_checkpoint": "artifacts/training/sonogpt_16m_m3/step_00005000.pt",
+  "final_validation": {
+    "loss": 0.057462184461673935,
+    "sample_count": 1500,
+    "target_token_count": 36871,
+    "token_accuracy": 0.9722817390360988
+  },
+  "freeze_id": "synthetic_v1_5k_frozen_v1",
+  "gpu_telemetry": {
+    "max_memory_used_mib": 1605.0,
+    "max_power_w": 112.85,
+    "max_temperature_c": 83.0,
+    "mean_temperature_c": 78.00904392764858,
+    "mean_utilization_percent": 43.458656330749356
+  },
+  "parameter_count": 15003648,
+  "run_directory": "artifacts/training/sonogpt_16m_m3",
+  "runtime": {
+    "applied_optimizer_steps": 5000,
+    "examples_per_second": 415.1660457503883,
+    "skipped_optimizer_steps": 0,
+    "target_tokens_per_second": 10288.600834393763
+  },
+  "status": "completed",
+  "thermal_control": {
+    "cooldown_count": 96,
+    "cooldown_seconds": 301.13665370002855,
+    "limit_c": 82.0,
+    "resume_c": 75.0
+  }
+}

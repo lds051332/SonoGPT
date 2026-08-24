@@ -8,7 +8,11 @@ version = "0.1.0"
 description = "A research-oriented lightweight Transformer for thyroid ultrasound reporting"
 requires-python = ">=3.11"
 dependencies = [
+    "numpy>=2.4.6",
+    "protobuf>=7.36.0",
     "pydantic>=2,<3",
+    "sentencepiece>=0.2.2",
+    "torch==2.12.0",
 ]
 
 [project.optional-dependencies]
@@ -23,3 +27,13 @@ where = ["src"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-q"
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu126", marker = "sys_platform == 'win32' or sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

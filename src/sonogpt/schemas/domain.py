@@ -131,7 +131,13 @@ class Location(SonoBaseModel):
 class Nodule(SonoBaseModel):
     nodule_id: str = Field(default="n1", min_length=1, max_length=32)
     location: Location
-    dimensions_mm: list[float] | ObservationState = ObservationState.NOT_MENTIONED
+    dimensions_mm: list[float] | ObservationState = Field(
+        default=ObservationState.NOT_MENTIONED,
+        description=(
+            "Measurements in transverse, anteroposterior, and optional "
+            "longitudinal order, all in millimetres"
+        ),
+    )
     composition: Composition = Composition.NOT_MENTIONED
     echogenicity: Echogenicity = Echogenicity.NOT_MENTIONED
     shape: Shape = Shape.NOT_MENTIONED

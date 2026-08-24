@@ -1,0 +1,78 @@
+{
+  "benchmark_version": "1.0.0",
+  "checkpoint_resume": {
+    "continuous_step_200_file_sha256": "4da97c089ed2e07bb85705f93f16987b18346aad773874537ec3f096e6de932b",
+    "exact_state_match": true,
+    "resumed_step_200_file_sha256": "50647045090dcd04dfc95861e93253bfc433030413805259981bdb1dabedb454",
+    "semantic_sha256": "e7a846a72eca03c5bd0d1acf28ed06606e896cc850a8d141ea62bdb167f34b10",
+    "source_step": 100,
+    "target_step": 200
+  },
+  "data": {
+    "dataset_manifest_sha256": "fe7683dfff397c2c4f3cb6c6a27fda2386b7e6f03150b1e298913576c7f8bc29",
+    "tokenizer_model_sha256": "743af34aa2d8bec332f82ce6756cd1458e9687244def23ece5c5b60ee8883ac2",
+    "train_sample_count": 12000,
+    "validation_sample_count": 1500
+  },
+  "hardware": {
+    "compute_capability": "7.5",
+    "driver_version": "560.81",
+    "gpu": "NVIDIA GeForce RTX 2060 Laptop",
+    "power_limit_w": 115,
+    "vram_mib": 6144
+  },
+  "model": {
+    "d_model": 384,
+    "max_seq_len": 384,
+    "n_heads": 6,
+    "n_layers": 8,
+    "parameter_count": 15003648,
+    "vocab_size": 1807
+  },
+  "results": {
+    "applied_optimizer_steps": 200,
+    "elapsed_seconds_including_validation_and_checkpoints": 52.916,
+    "example_count": 6400,
+    "examples_per_second_training_only": 135.05427623188717,
+    "gpu_telemetry": {
+      "max_memory_used_mib_system_wide": 1378,
+      "max_power_w": 73.28,
+      "max_temperature_c": 73,
+      "max_utilization_percent": 41,
+      "mean_power_w": 54.7414,
+      "mean_temperature_c": 66.94,
+      "mean_utilization_percent": 37.16,
+      "sample_count": 50
+    },
+    "skipped_optimizer_steps": 0,
+    "target_token_count": 158981,
+    "target_tokens_per_second_training_only": 3354.8537327533836,
+    "torch_cuda_memory": {
+      "max_allocated_mib": 366.7255859375,
+      "max_reserved_mib": 386
+    },
+    "training_step_seconds": 47.38835510110948,
+    "validation": {
+      "step_100_loss": 2.01230919913659,
+      "step_100_token_accuracy": 0.4952944048167937,
+      "step_200_loss": 1.0915693447318355,
+      "step_200_token_accuracy": 0.6628786851455073
+    }
+  },
+  "software": {
+    "amp_dtype": "float16",
+    "cuda_runtime": "12.6",
+    "cudnn": "9.10.2",
+    "python": "3.12.13",
+    "torch": "2.12.0+cu126"
+  },
+  "thermal_safety_limit_c": 85,
+  "training": {
+    "effective_batch_size": 32,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0003,
+    "micro_batch_size": 4,
+    "min_learning_rate": 0.00003,
+    "warmup_steps": 200
+  }
+}

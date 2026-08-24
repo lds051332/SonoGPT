@@ -1,0 +1,21 @@
+{
+  "adam_epsilon": 1e-08,
+  "amp_dtype": "float16",
+  "beta1": 0.9,
+  "beta2": 0.95,
+  "checkpoint_interval": 100,
+  "config_version": "1.0.0",
+  "deterministic": true,
+  "evaluation_batch_size": 8,
+  "evaluation_interval": 100,
+  "gradient_accumulation_steps": 2,
+  "gradient_clip_norm": 1.0,
+  "learning_rate": 0.0003,
+  "log_interval": 10,
+  "max_steps": 5000,
+  "micro_batch_size": 16,
+  "min_learning_rate": 0.00003,
+  "seed": 20260824,
+  "warmup_steps": 200,
+  "weight_decay": 0.1
+}
