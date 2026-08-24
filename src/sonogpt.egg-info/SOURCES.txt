@@ -1,0 +1,13 @@
+pyproject.toml
+src/sonogpt/__init__.py
+src/sonogpt.egg-info/PKG-INFO
+src/sonogpt.egg-info/SOURCES.txt
+src/sonogpt.egg-info/dependency_links.txt
+src/sonogpt.egg-info/requires.txt
+src/sonogpt.egg-info/top_level.txt
+src/sonogpt/baselines/__init__.py
+src/sonogpt/baselines/template_report.py
+src/sonogpt/schemas/__init__.py
+src/sonogpt/schemas/domain.py
+tests/test_domain_schema.py
+tests/test_template_report.py
