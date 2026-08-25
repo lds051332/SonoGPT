@@ -1,0 +1,35 @@
+{
+  "task": "template_preview",
+  "web_demo_version": "1.0.0",
+  "clinical_use": false,
+  "report": "甲状腺右叶中部见一枚实性低回声结节，大小约8×6mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。颈部未见明显可疑淋巴结。",
+  "model_used": false,
+  "exam": {
+    "schema_version": "1.0.0",
+    "organ": "thyroid",
+    "nodules": [
+      {
+        "nodule_id": "n1",
+        "location": {
+          "side": "right",
+          "segment": "middle"
+        },
+        "dimensions_mm": [
+          8.0,
+          6.0
+        ],
+        "composition": "solid",
+        "echogenicity": "hypoechoic",
+        "shape": "wider_than_tall",
+        "margin": "smooth",
+        "echogenic_foci": "none",
+        "vascularity": "none"
+      }
+    ],
+    "lymph_nodes": "no_suspicious"
+  },
+  "notes": [
+    "Deterministic template baseline, no neural network.",
+    "Not for clinical diagnosis."
+  ]
+}

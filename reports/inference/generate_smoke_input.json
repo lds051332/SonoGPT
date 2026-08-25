@@ -1,0 +1,15 @@
+{
+  "lymph_nodes": "no_suspicious",
+  "nodules": [
+    {
+      "composition": "solid",
+      "dimensions_mm": [8, 6],
+      "echogenic_foci": "none",
+      "echogenicity": "hypoechoic",
+      "location": {"segment": "middle", "side": "right"},
+      "margin": "smooth",
+      "shape": "wider_than_tall",
+      "vascularity": "none"
+    }
+  ]
+}

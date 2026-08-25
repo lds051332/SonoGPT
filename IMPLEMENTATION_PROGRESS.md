@@ -1,7 +1,7 @@
 # SonoGPT 实施进度
 
-> 更新时间：2026-08-24  
-> 当前阶段：正式 5000 Step 训练已完成 / 下一步为三集评估
+> 更新时间：2026-08-25  
+> 当前阶段：generate 评估、规则抽取/质控、推理 CLI、本地网页 Demo 已完成 / 下一步为可选学习曲线、Django 上云或真人挑战集
 
 ## 本次已完成
 
@@ -1002,22 +1002,176 @@ CURSOR_PROMPT.md
 reports/training/sonogpt_16m_m3_5000step_20260824.json
 ```
 
+### 28. 完成冻结三集 generate 评估
+
+公司 GTX 1650 上实现了最终评估流水线，并对照
+`step_00004900.pt` 与 `step_00005000.pt`。评估前重新校验训练冻结和挑战集冻结，
+加载 Tokenizer 与 Checkpoint 时核对 Freeze ID、冻结哈希和 Tokenizer SHA-256。
+Greedy 生成不再静默截断：超过 `max_seq_len` 或未产生 EOS 会记为生成错误。
+
+字段指标由独立规则解析器从生成报告中抽取，不把同一模型的生成-抽取闭环当作
+最终成绩。已见模板、留出模板和模拟挑战集分开报告，没有混在一起平均。
+
+新增：
+
+```text
+src/sonogpt/evaluation/report_parser.py
+src/sonogpt/evaluation/metrics.py
+src/sonogpt/evaluation/generation.py
+src/sonogpt/evaluation/pipeline.py
+scripts/evaluate_generate.py
+tests/test_evaluation.py
+reports/evaluation/sonogpt_16m_m3_generate_20260825.json
+reports/evaluation/sonogpt_16m_m3_generate_20260825.md
+```
+
+复现命令：
+
+```powershell
+uv run python scripts/evaluate_generate.py --device cuda
+```
+
+公司机实测：CUDA 可用，每个 Checkpoint 约 6 分钟，PyTorch 峰值分配显存约
+111 MiB，生成错误率为 0。`uv run pytest` 结果为 `78 passed in 6.30s`。
+
+默认评估 Checkpoint `step_00004900.pt`：
+
+| 集合 | 样本 | 文本精确匹配 | 任一训练模板匹配 | 明示字段准确率 | 尺寸精确匹配 | Teacher-forced Token Acc |
+| --- | --- | --- | --- | --- | --- | --- |
+| 已见模板 | 1500 | 0.3320 | 0.9960 | 0.9997 | 1.0000 | 0.9724 |
+| 留出模板 | 500 | 0.0000 | 0.9960 | 0.9997 | 1.0000 | 0.6435 |
+| 模拟挑战集 | 30 | 0.0000 | 0.9667 | 1.0000 | 0.9630 | 0.1040 |
+
+解读：
+
+- 已见模板的逐字匹配只有 33%，是因为同一 JSON 对应 3 个已见语序，模型常生成
+  另一个合法模板；按四个训练模板中的任意一个计，匹配率为 99.6%。
+- 留出模板 `flow_first_v2` 从未进入训练。模型 **0 次** 写出该语序，所以相对
+  金标准逐字匹配为 0，但独立解析后的字段/尺寸几乎全部正确，说明语义映射已
+  泛化，未学会留出语序。
+- 挑战集参考报告是改写句，Teacher-forced 损失高、逐字匹配为 0 是预期现象。
+  模型仍把 JSON 渲染成训练模板，字段准确率 100%，27 条有尺寸的样本中 26 条
+  数值完全正确。这不能称为真实人类或临床挑战结果。
+- 已见/留出集合上部位字段有极少数错误（`location_side` 准确率 0.9979）。
+
+`step_00005000.pt` 与 4900 几乎持平，已见模板任意模板匹配略低（0.9920 vs
+0.9960）。继续默认使用验证 Loss 最佳的 4900 Checkpoint。
+
+本轮规则解析器当时只服务 generate 评估。第 29 节已把它做成独立抽取/质控基线，并接上推理 CLI。
+
+### 29. 完成规则抽取、质控基线与推理 CLI
+
+把 generate 评估里的规则解析器升级成可独立对照的基线，并补上本地推理入口。V1 只训练了 `generate`；`extract` 不走 Transformer。`baselines/__init__.py` 只导出 `render_report`，避免 `qc → metrics → renderers → template_report → baselines` 循环导入。
+
+新增：
+
+```text
+src/sonogpt/baselines/rule_extract.py
+src/sonogpt/baselines/qc.py
+src/sonogpt/evaluation/extract_baseline.py
+src/sonogpt/evaluation/qc_baseline.py
+src/sonogpt/inference/engine.py
+scripts/evaluate_extract_baseline.py
+scripts/evaluate_qc_baseline.py
+scripts/infer.py
+tests/test_baselines.py
+tests/test_inference.py
+docs/baselines.md
+docs/inference.md
+docs/evaluation.md
+reports/baselines/rule_extract_20260825.json
+reports/baselines/rule_extract_20260825.md
+reports/baselines/qc_rules_20260825.json
+reports/baselines/qc_rules_20260825.md
+reports/inference/
+```
+
+规则抽取版本 `rule_extract` 1.0.0。复现：
+
+```powershell
+uv run python scripts/evaluate_extract_baseline.py
+```
+
+2026-08-25 结果（明示字段准确率，不是含 `unknown` 的整条 JSON Exact Match）：
+
+| 集合 | 样本 | 可解析 | 明示字段准确率 | 尺寸精确匹配 | 整条结构 Exact Match |
+| --- | --- | --- | --- | --- | --- |
+| 夹具 | 50 | 1.0000 | 1.0000 | 1.0000 | 0.8000 |
+| 已见模板 | 1500 | 1.0000 | 1.0000 | 1.0000 | 0.6100 |
+| 留出模板 | 500 | 1.0000 | 1.0000 | 1.0000 | 0.6100 |
+| 模拟挑战集 | 30 | 1.0000 | 1.0000 | 1.0000 | 0.7667 |
+
+幻觉率为 0。Exact Match 较低，是因为金标准 `unknown` 被规则写成 `not_mentioned`。评估把这两种状态视为不同。
+
+质控版本 `qc_rules` 1.0.0。`passed` 只看 error。复现：
+
+```powershell
+uv run python scripts/evaluate_qc_baseline.py
+```
+
+干净样本（夹具 / 已见 / 留出 / 挑战集）error 假阳性为 0，通过率 1.0。夹具平均 warning 0.5，来自部分夹具结构触发工程一致性提示，不是临床结论。11 类注入缺陷共 220 条，micro/macro recall 均为 1.0。
+
+推理 CLI 版本 `inference` 1.0.0。公共参数写在子命令后面：
+
+```powershell
+uv run python scripts/infer.py info --device cuda
+uv run python scripts/infer.py generate --device cuda --json-file reports/inference/generate_smoke_input.json --output reports/inference/generate_smoke_output.json
+uv run python scripts/infer.py extract --text "……"
+uv run python scripts/infer.py qc --text-file report.txt --json-file exam.json
+```
+
+`generate` 在 QC error 或生成失败时默认回退到确定性模板，并记录 `used_fallback`。`extract` 的 `model_used` 恒为 false。公司机 CUDA 冒烟（Checkpoint 4900）写入 `reports/inference/`：模型报告与 `location_first_v2` 一致，`used_fallback=false`，QC 通过。这是单条冒烟，不能代替冻结集评估。
+
+说明文档：
+
+- `docs/baselines.md`：模板 / 抽取 / 质控边界与指标含义
+- `docs/inference.md`：CLI 用法与处理链
+- `docs/evaluation.md`：三套评估怎么读、禁止三集平均
+- `docs/web.md`：本地网页 Demo
+
+`uv run pytest` 结果为 `86 passed`。没有覆盖冻结数据、Tokenizer、挑战集或正式 Checkpoint，也没有重训。
+
+### 30. 完成本地网页 Demo
+
+用 FastAPI 在本机提供可打开的网页，默认 `127.0.0.1:8000`，不上云。15M 权重在进程内常驻，避免每个请求重新加载。页面输入是 Schema v1 表单，不是聊天框，也不是超声图。V1 抽取仍走规则，页面上标明「不是 extract 任务模型」。
+
+新增：
+
+```text
+src/sonogpt/web/app.py
+src/sonogpt/web/catalog.py
+src/sonogpt/web/forms.py
+src/sonogpt/web/demo.py
+src/sonogpt/web/static/index.html
+scripts/serve_demo.py
+tests/test_web.py
+docs/web.md
+reports/web/
+```
+
+启动：
+
+```powershell
+uv run python scripts/serve_demo.py --device cuda
+```
+
+浏览器打开 http://127.0.0.1:8000/ 。依赖增加 `fastapi`、`uvicorn`、`httpx`。公司机 CUDA 冒烟：冒烟样本 `used_fallback=false`，QC 通过，报告与默认模板逐字相同。产物在 `reports/web/`。
+
+`uv run pytest` 结果为 `95 passed`。没有覆盖冻结数据、Tokenizer、挑战集或正式 Checkpoint，也没有重训。Django 对外部署留作后续，不替代本机 Demo。
+
 ## 当前尚未完成
 
-- 已见模板、留出模板和模拟挑战集上的最终评估；
-- 规则抽取与质控基线；
-- 推理 CLI / 服务；
-- 50,000～100,000 病例完整数据是否有收益仍需学习曲线证明。
+- 对外可访问的 Django 前后台与上云（本机 FastAPI Demo 已够本地展示）
+- 50,000～100,000 病例完整数据是否有收益，仍需学习曲线证明
+- 如项目超出学习 Demo，再由真人独立编写临床挑战集（当前挑战集是 AI 模拟改写）
 
 ## 下一步建议
 
-下一次优先实现：
+当前 Demo 闭环已经齐：Schema → 冻结数据 → 训练 → generate 评估 → 规则抽取/质控对照 → 本地推理 CLI → 本地网页。下一次可选：
 
-1. 在已见模板、留出模板和模拟人工挑战集上完成最终评估；
-2. 比较 Step 4900 与 Step 5000 Checkpoint；
-3. 增加规则抽取与质控基线，用于与模型结果对照；
-4. 增加推理入口；
-5. 如项目未来超出演示范围，再由真人独立编写临床挑战集。
+1. 学习曲线实验（更少或更多合成数据），不要覆盖现有冻结版本；
+2. 用 Django 做可对外的前后台并部署，默认仍指向 4900 Checkpoint；
+3. 真人独立编写临床挑战集（禁止进入训练）。
 
 ## 需要人工确认的领域问题
 

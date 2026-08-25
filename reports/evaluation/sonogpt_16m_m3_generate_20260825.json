@@ -1,0 +1,1087 @@
+{
+  "challenge_freeze_id": "simulated_human_challenge_v1",
+  "challenge_freeze_sha256": "ccee68088fff6a1f0127e9c4c669efcc93d0cc843517747dfe3e56048267b68e",
+  "checkpoints": [
+    {
+      "checkpoint": {
+        "best_validation_loss": 0.0569645016047769,
+        "file_sha256": "497ee0595eb95d04774d8a36f11f38a404c37e0376418502ae6eb3f6b06651b3",
+        "global_step": 4900,
+        "name": "step_00004900.pt",
+        "path": "artifacts/training/sonogpt_16m_m3/step_00004900.pt"
+      },
+      "elapsed_seconds": 358.85535630000004,
+      "peak_cuda_memory_allocated_mib": 111.42138671875,
+      "splits": {
+        "simulated_human_challenge": {
+          "dimensions": {
+            "comparable_count": 27,
+            "count_match_rate": 1.0,
+            "exact_match_rate": 0.9629629629629629,
+            "mean_abs_error_mm": 0.5555555555555556,
+            "tolerance_mm": 0.05,
+            "tolerant_match_rate": 0.9629629629629629
+          },
+          "eos_finished_rate": 1.0,
+          "exact_match_rate": 0.0,
+          "failure_example_count": 30,
+          "failure_examples": [
+            {
+              "exact_match": false,
+              "example_id": "challenge_594e0c8bda6fb090265519921651ce9bf2569a89b62a49ae994d7bb22b901d47",
+              "generated_text": "一枚约9×6×12mm的实性低回声结节位于甲状腺右叶上部，内未见明显强回声，边缘光滑，CDFI示周边可见血流信号，呈非高于宽形。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "结节位于甲状腺右叶上段，测得约9×6×12mm；呈实性低回声，横径大于前后径，轮廓光整。其内未检出强回声点，彩色血流主要环绕结节分布。双侧颈区未扫及明显异常淋巴结。",
+              "semantic_case_id": "sc_207fcca69c86d515e0c2f884bc0338d0888ee1c7d0a83348fdb7ac4fb1539450"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_8a2e7610b359522d5c04799149e631155d487fa703efe2274cf0d65cdb32b9ca",
+              "generated_text": "可见一枚实性极低回声结节，位于甲状腺左叶下部，边缘分叶或不规则，呈高于宽形，大小约6×9mm，CDFI示内部可见血流信号，内见点状强回声。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶下段探及6×9mm结节，前后径超过横径。结节为实性极低回声，外形欠规则，并散在细小点状强回声；血流信号可进入结节内部。颈部另见形态可疑淋巴结。",
+              "semantic_case_id": "sc_b7d7abf1816cf124280c9c21f3a4e9aebda8fab62293c161c2228af61a7ee4de"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_3661f1d6a21a2149c66e11508de1c06f09b75702a601203387e2e6dea055d578",
+              "generated_text": "甲状腺峡部见一枚囊实性等回声结节，大小约11×5×13mm，呈非高于宽形，边界欠清，内见粗大钙化，CDFI示周边可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "于峡部发现囊、实成分混合的等回声灶，三径约11×5×13mm，横向生长，边缘显示不够清楚。灶内伴较大钙化回声，周缘可记录到血流。",
+              "semantic_case_id": "sc_19915012958b1d05f2c7d38c9941b52e2a0b504e133bb81500382f03628092de"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_3db5769486a6f33f7ef614c6994d35ae796a286786c7c17ff50ff693ac48a7f2",
+              "generated_text": "一枚约7×4mm的囊性无回声结节位于甲状腺右叶中部，内见彗尾征，边缘光滑，CDFI示结节内及周边未见明显血流信号，呈非高于宽形。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "右侧叶中段可扫及一处7mm×4mm液性无回声区，前后径小于横径，壁缘规整，局部伴彗尾样回声。彩色多普勒在其内及周边均未记录到明确血流；颈部淋巴结未见可疑改变。",
+              "semantic_case_id": "sc_c74283d1a4dec001265d43dd3220955afb298edfca25e7d18582c1ec9333b4b7"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_79c461c06302cbf77cf0e72c9f02ea080a46101eddb7f55192b4ef7c4feee0ac",
+              "generated_text": "一枚约13×7mm的海绵状等回声结节位于甲状腺左叶上部，内未见明显强回声，边缘光滑，CDFI示周边可见血流信号，呈非高于宽形。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "左叶上段有一枚约13×7mm的海绵样等回声结节，整体横向排列，边缘连续光滑，内部没有明确强回声灶，血流仅在外围显示。",
+              "semantic_case_id": "sc_2f72401816112149c26de2dba3f4567c2da45a9db4f8ebacf3eed8cf281e262d"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_e578bbca2191c65f027a5346f1f051d89ff65ba54a9f39d7e84116bfac0d5ce4",
+              "generated_text": "可见一枚囊实性低回声结节，位于甲状腺右叶下部，边缘光滑，呈非高于宽形，大小约15×8×17mm，CDFI示内部及周边可见血流信号，内见粗大钙化。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "右叶下段结节大小为15×8×17mm，囊实相间且回声偏低，前后径未超过横径，边缘尚光整。内部可见粗大钙化，结节内和周围均可见血流。颈区未发现形态可疑淋巴结。",
+              "semantic_case_id": "sc_187fcb7bd29c7e2b96f496169000b0a323ba381f2b313fdf33a1909c2f71abc4"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_d6c2fd02108393b2f8855e0e1850d412be3488c05433ee26cb7392832cf19bdc",
+              "generated_text": "甲状腺左叶中部见一枚实性高回声结节，大小约8×5mm，呈非高于宽形，边界欠清，周边见环形钙化，CDFI示结节内及周边未见明显血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "左侧叶中段见8×5mm实性高回声结节，呈横向生长，边缘分辨欠佳，周边见环形钙化样强回声。彩色血流检查在结节内外未见明确信号。",
+              "semantic_case_id": "sc_90244a3aa42f21616a8d526682ec7285fc931a8f42b202be7900efe13d19650a"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_1e3c4c208375e0192813ba023182cd27b39cc36633b666ed53a9abefcaab75fb",
+              "generated_text": "一枚约10.5×6.5×14mm的实性等回声结节位于甲状腺右叶上部，内见彗尾征，边缘光滑，CDFI示内部及周边可见血流信号，呈非高于宽形。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "在右叶上段扫查到约10.5×6.5×14mm实性结节，回声与周围腺体接近，横径较前后径大，边缘平整。结节内有彗尾样强回声，内部与周边均有血流显示。",
+              "semantic_case_id": "sc_5c78f5cc5b3160a5d1ec1e605e8a86a4572a6eb123c56fe750183d545544ceb7"
+            }
+          ],
+          "fields": {
+            "hallucinated_count": 0,
+            "hallucination_rate": 0.0,
+            "mentioned_accuracy": 1.0,
+            "mentioned_count": 225,
+            "per_field": {
+              "composition": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 26
+              },
+              "echogenic_foci": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 27
+              },
+              "echogenicity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 26
+              },
+              "location_segment": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 28
+              },
+              "location_side": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 29
+              },
+              "lymph_nodes": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 11
+              },
+              "margin": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 27
+              },
+              "shape": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 25
+              },
+              "vascularity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 26
+              }
+            },
+            "unstated_count": 45
+          },
+          "generation_error_rate": 0.0,
+          "parseable_rate": 1.0,
+          "sample_count": 30,
+          "split": "simulated_human_challenge",
+          "teacher_forced": {
+            "loss": 13.143754884504503,
+            "target_token_count": 2480,
+            "token_accuracy": 0.10403225806451613
+          },
+          "template_exact_match": {
+            "any_family_rate": 0.9666666666666667,
+            "family_counts": {
+              "descriptor_first_v2": 17,
+              "dimensions_first_v2": 9,
+              "flow_first_v2": 0,
+              "location_first_v2": 3,
+              "none": 1
+            }
+          }
+        },
+        "test_heldout_templates": {
+          "dimensions": {
+            "comparable_count": 466,
+            "count_match_rate": 1.0,
+            "exact_match_rate": 1.0,
+            "mean_abs_error_mm": 0.0,
+            "tolerance_mm": 0.05,
+            "tolerant_match_rate": 1.0
+          },
+          "eos_finished_rate": 1.0,
+          "exact_match_rate": 0.0,
+          "failure_example_count": 500,
+          "failure_examples": [
+            {
+              "exact_match": false,
+              "example_id": "sample_970917c1ae7430be85f60a7719ea05427a8735f950092d2e1568f91c8647a056",
+              "generated_text": "可见一枚实性高回声结节，位于甲状腺右叶上部，边界欠清，呈非高于宽形，大小约28.8×22.5mm，CDFI示内部可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶上部探及一枚实性高回声结节，CDFI示内部可见血流信号，大小约28.8×22.5mm，呈非高于宽形，边界欠清。",
+              "semantic_case_id": "sc_386493203bba373a01dc110f3f80c6e4562a22a65ebed614cec561a27e153366"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_70ccf28c11a0807573e3daf2dac6172ba26dd1a1a1a9a735809c77edb52f4e03",
+              "generated_text": "可见一枚实性结节，位于甲状腺左叶上部，呈非高于宽形，大小约18.6×13.9mm，CDFI示内部可见血流信号，内见粗大钙化。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶上部探及一枚实性结节，CDFI示内部可见血流信号，大小约18.6×13.9mm，内见粗大钙化，呈非高于宽形。",
+              "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_3efeb82ff2a214754d7fd845d3560a9ab0e900f9f5523fa176a0edb75a38f34e",
+              "generated_text": "可见一枚实性结节，位于甲状腺内，边缘光滑，呈非高于宽形，大小约18.7×15.1×18.9mm，CDFI示结节内及周边未见明显血流信号，内未见明显强回声。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺内探及一枚实性结节，CDFI示结节内及周边未见明显血流信号，大小约18.7×15.1×18.9mm，内未见明显强回声，呈非高于宽形，边缘光滑。",
+              "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_151c5bbd21f1829b34f0adf8a481dd693987fea6de6888a75e505dcdce4b4f53",
+              "generated_text": "甲状腺左叶下部见一枚实性低回声结节，大小约25.8×31.7mm，呈高于宽形，边缘光滑，内见粗大钙化，CDFI示周边可见血流信号。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶下部探及一枚实性低回声结节，CDFI示周边可见血流信号，大小约25.8×31.7mm，内见粗大钙化，呈高于宽形，边缘光滑。颈部可见可疑淋巴结。",
+              "semantic_case_id": "sc_171b001bc57ed8a1db8312161700babe5b61c490279777bbf2d458ae70b4cde2"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_04a8b2f945037a3004fe723e9a2caebad0dc5c1483ddc78d0aa084ef4c2cdbc7",
+              "generated_text": "甲状腺右叶上部见一枚囊性无回声结节，大小约28.7×27mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶上部探及一枚囊性无回声结节，CDFI示结节内及周边未见明显血流信号，大小约28.7×27mm，内未见明显强回声，呈非高于宽形，边缘光滑。",
+              "semantic_case_id": "sc_a7b5f6c4c08c9b3b3e28420cd38ec00ada733db4cc312f0118cbc36ad048e7ee"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_1bef13f455c8eca91346dc131f51cc5e64256e7e0ebf07f003ac61b5e54ac513",
+              "generated_text": "可见一枚实性低回声结节，位于甲状腺右叶下部，边缘光滑，呈非高于宽形，大小约24.5×14.9×26.7mm，CDFI示结节内及周边未见明显血流信号，内未见明显强回声。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶下部探及一枚实性低回声结节，CDFI示结节内及周边未见明显血流信号，大小约24.5×14.9×26.7mm，内未见明显强回声，呈非高于宽形，边缘光滑。颈部未见明显可疑淋巴结。",
+              "semantic_case_id": "sc_386d7e10ac07387b68ed12b4ba37ba65af62dd7c3cf61f46bc62ac7182574c6e"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_4cdf1dc1de7c66a7515a053e8212e5e55127b9fa74c2d68c8b6f9673acb96f5e",
+              "generated_text": "甲状腺左叶中部见一枚实性等回声结节，大小约6.9×3.7mm，呈非高于宽形，边缘分叶或不规则，周边见环形钙化，CDFI示周边可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶中部探及一枚实性等回声结节，CDFI示周边可见血流信号，大小约6.9×3.7mm，周边见环形钙化，呈非高于宽形，边缘分叶或不规则。",
+              "semantic_case_id": "sc_d6634e1c49f6db2d5fbcea448a95c4cb707d4fed3fe8af0a156946c2766fd6a2"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_f5b4c794f05056b6fb55e9e44fa0ed668482e2570fd6f87223d16c2a0d89cf5c",
+              "generated_text": "可见一枚囊实性低回声结节，位于甲状腺右叶中部，大小约22.9×17.9×22.9mm，内见粗大钙化。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶中部探及一枚囊实性低回声结节，大小约22.9×17.9×22.9mm，内见粗大钙化。颈部未见明显可疑淋巴结。",
+              "semantic_case_id": "sc_4b9662c6a1cdfff236a494924a0fd250ded93f26b32bf5d2799597a6c924c178"
+            }
+          ],
+          "fields": {
+            "hallucinated_count": 2,
+            "hallucination_rate": 0.002472187886279357,
+            "mentioned_accuracy": 0.999729070712544,
+            "mentioned_count": 3691,
+            "per_field": {
+              "composition": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 456
+              },
+              "echogenic_foci": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 401
+              },
+              "echogenicity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 430
+              },
+              "location_segment": {
+                "accuracy": 1.0,
+                "hallucinated_count": 1,
+                "mentioned_count": 441
+              },
+              "location_side": {
+                "accuracy": 0.9979381443298969,
+                "hallucinated_count": 1,
+                "mentioned_count": 485
+              },
+              "lymph_nodes": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 218
+              },
+              "margin": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 429
+              },
+              "shape": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 435
+              },
+              "vascularity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 396
+              }
+            },
+            "unstated_count": 809
+          },
+          "generation_error_rate": 0.0,
+          "parseable_rate": 1.0,
+          "sample_count": 500,
+          "split": "test_heldout_templates",
+          "teacher_forced": {
+            "loss": 5.3820013106313205,
+            "target_token_count": 14770,
+            "token_accuracy": 0.6434664861205146
+          },
+          "template_exact_match": {
+            "any_family_rate": 0.996,
+            "family_counts": {
+              "descriptor_first_v2": 244,
+              "dimensions_first_v2": 118,
+              "flow_first_v2": 0,
+              "location_first_v2": 136,
+              "none": 2
+            }
+          }
+        },
+        "test_seen_templates": {
+          "dimensions": {
+            "comparable_count": 1398,
+            "count_match_rate": 1.0,
+            "exact_match_rate": 1.0,
+            "mean_abs_error_mm": 0.0,
+            "tolerance_mm": 0.05,
+            "tolerant_match_rate": 1.0
+          },
+          "eos_finished_rate": 1.0,
+          "exact_match_rate": 0.332,
+          "failure_example_count": 1002,
+          "failure_examples": [
+            {
+              "exact_match": false,
+              "example_id": "sample_b16969cba0644807a9e51a2d473e43872adc7a404b3336f91c8e2174971b086b",
+              "generated_text": "可见一枚实性高回声结节，位于甲状腺右叶上部，边界欠清，呈非高于宽形，大小约28.8×22.5mm，CDFI示内部可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶上部见一枚实性高回声结节，大小约28.8×22.5mm，呈非高于宽形，边界欠清，CDFI示内部可见血流信号。",
+              "semantic_case_id": "sc_386493203bba373a01dc110f3f80c6e4562a22a65ebed614cec561a27e153366"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_8930c3831c88a0c512bad6baba8a1b5b9a91dc1d4b5bed16b1ef4630ab50904e",
+              "generated_text": "可见一枚实性高回声结节，位于甲状腺右叶上部，边界欠清，呈非高于宽形，大小约28.8×22.5mm，CDFI示内部可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "一枚约28.8×22.5mm的实性高回声结节位于甲状腺右叶上部，边界欠清，CDFI示内部可见血流信号，呈非高于宽形。",
+              "semantic_case_id": "sc_386493203bba373a01dc110f3f80c6e4562a22a65ebed614cec561a27e153366"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_498503c128cdcb734383a66582ffb142d68d24e8e648272aa1fdeca27d0595c3",
+              "generated_text": "可见一枚实性结节，位于甲状腺左叶上部，呈非高于宽形，大小约18.6×13.9mm，CDFI示内部可见血流信号，内见粗大钙化。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶上部见一枚实性结节，大小约18.6×13.9mm，呈非高于宽形，内见粗大钙化，CDFI示内部可见血流信号。",
+              "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_b117346a0e64eb2dddbec03a1371a0a930ff37246fb80ee339cbd970bcce8f19",
+              "generated_text": "可见一枚实性结节，位于甲状腺左叶上部，呈非高于宽形，大小约18.6×13.9mm，CDFI示内部可见血流信号，内见粗大钙化。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "一枚约18.6×13.9mm的实性结节位于甲状腺左叶上部，内见粗大钙化，CDFI示内部可见血流信号，呈非高于宽形。",
+              "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_0074204b1e8b76b2f063edb58593bcf95d62d18d89ae82b1f5b6f056612573b3",
+              "generated_text": "可见一枚实性结节，位于甲状腺内，边缘光滑，呈非高于宽形，大小约18.7×15.1×18.9mm，CDFI示结节内及周边未见明显血流信号，内未见明显强回声。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺内见一枚实性结节，大小约18.7×15.1×18.9mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。",
+              "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_d5dedd1def82dba6fc67bd610e96e95c4bef0750de6aea1af72f809d0939e261",
+              "generated_text": "可见一枚实性结节，位于甲状腺内，边缘光滑，呈非高于宽形，大小约18.7×15.1×18.9mm，CDFI示结节内及周边未见明显血流信号，内未见明显强回声。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "一枚约18.7×15.1×18.9mm的实性结节位于甲状腺内，内未见明显强回声，边缘光滑，CDFI示结节内及周边未见明显血流信号，呈非高于宽形。",
+              "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_4732e19d485c88b81025228cbf6b62370d9dc9f6f9221ccb5642cef8c45aa839",
+              "generated_text": "甲状腺左叶下部见一枚实性低回声结节，大小约25.8×31.7mm，呈高于宽形，边缘光滑，内见粗大钙化，CDFI示周边可见血流信号。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "可见一枚实性低回声结节，位于甲状腺左叶下部，边缘光滑，呈高于宽形，大小约25.8×31.7mm，CDFI示周边可见血流信号，内见粗大钙化。颈部可见可疑淋巴结。",
+              "semantic_case_id": "sc_171b001bc57ed8a1db8312161700babe5b61c490279777bbf2d458ae70b4cde2"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_edadd297deffb2961855f361a5b968e70121d848d40ef6fd9184c6d609e455c3",
+              "generated_text": "甲状腺左叶下部见一枚实性低回声结节，大小约25.8×31.7mm，呈高于宽形，边缘光滑，内见粗大钙化，CDFI示周边可见血流信号。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "一枚约25.8×31.7mm的实性低回声结节位于甲状腺左叶下部，内见粗大钙化，边缘光滑，CDFI示周边可见血流信号，呈高于宽形。颈部可见可疑淋巴结。",
+              "semantic_case_id": "sc_171b001bc57ed8a1db8312161700babe5b61c490279777bbf2d458ae70b4cde2"
+            }
+          ],
+          "fields": {
+            "hallucinated_count": 6,
+            "hallucination_rate": 0.002472187886279357,
+            "mentioned_accuracy": 0.999729070712544,
+            "mentioned_count": 11073,
+            "per_field": {
+              "composition": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1368
+              },
+              "echogenic_foci": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1203
+              },
+              "echogenicity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1290
+              },
+              "location_segment": {
+                "accuracy": 1.0,
+                "hallucinated_count": 3,
+                "mentioned_count": 1323
+              },
+              "location_side": {
+                "accuracy": 0.9979381443298969,
+                "hallucinated_count": 3,
+                "mentioned_count": 1455
+              },
+              "lymph_nodes": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 654
+              },
+              "margin": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1287
+              },
+              "shape": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1305
+              },
+              "vascularity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1188
+              }
+            },
+            "unstated_count": 2427
+          },
+          "generation_error_rate": 0.0,
+          "parseable_rate": 1.0,
+          "sample_count": 1500,
+          "split": "test_seen_templates",
+          "teacher_forced": {
+            "loss": 0.05425134997609599,
+            "target_token_count": 36637,
+            "token_accuracy": 0.9723503561972869
+          },
+          "template_exact_match": {
+            "any_family_rate": 0.996,
+            "family_counts": {
+              "descriptor_first_v2": 732,
+              "dimensions_first_v2": 354,
+              "flow_first_v2": 0,
+              "location_first_v2": 408,
+              "none": 6
+            }
+          }
+        }
+      }
+    },
+    {
+      "checkpoint": {
+        "best_validation_loss": 0.0569645016047769,
+        "file_sha256": "4aa86d13820472330de49dd1e61b98bf8094125f11205865276f0ae78a27d081",
+        "global_step": 5000,
+        "name": "step_00005000.pt",
+        "path": "artifacts/training/sonogpt_16m_m3/step_00005000.pt"
+      },
+      "elapsed_seconds": 365.4941441000001,
+      "peak_cuda_memory_allocated_mib": 111.5869140625,
+      "splits": {
+        "simulated_human_challenge": {
+          "dimensions": {
+            "comparable_count": 27,
+            "count_match_rate": 1.0,
+            "exact_match_rate": 0.9629629629629629,
+            "mean_abs_error_mm": 0.5555555555555556,
+            "tolerance_mm": 0.05,
+            "tolerant_match_rate": 0.9629629629629629
+          },
+          "eos_finished_rate": 1.0,
+          "exact_match_rate": 0.0,
+          "failure_example_count": 30,
+          "failure_examples": [
+            {
+              "exact_match": false,
+              "example_id": "challenge_594e0c8bda6fb090265519921651ce9bf2569a89b62a49ae994d7bb22b901d47",
+              "generated_text": "甲状腺右叶上部见一枚实性低回声结节，大小约9×6×12mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示周边可见血流信号。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "结节位于甲状腺右叶上段，测得约9×6×12mm；呈实性低回声，横径大于前后径，轮廓光整。其内未检出强回声点，彩色血流主要环绕结节分布。双侧颈区未扫及明显异常淋巴结。",
+              "semantic_case_id": "sc_207fcca69c86d515e0c2f884bc0338d0888ee1c7d0a83348fdb7ac4fb1539450"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_8a2e7610b359522d5c04799149e631155d487fa703efe2274cf0d65cdb32b9ca",
+              "generated_text": "可见一枚实性极低回声结节，位于甲状腺左叶下部，边缘分叶或不规则，呈高于宽形，大小约6×9mm，CDFI示内部可见血流信号，内见点状强回声。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶下段探及6×9mm结节，前后径超过横径。结节为实性极低回声，外形欠规则，并散在细小点状强回声；血流信号可进入结节内部。颈部另见形态可疑淋巴结。",
+              "semantic_case_id": "sc_b7d7abf1816cf124280c9c21f3a4e9aebda8fab62293c161c2228af61a7ee4de"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_3661f1d6a21a2149c66e11508de1c06f09b75702a601203387e2e6dea055d578",
+              "generated_text": "可见一枚囊实性等回声结节，位于甲状腺峡部，边界欠清，呈非高于宽形，大小约11×5×13mm，CDFI示周边可见血流信号，内见粗大钙化。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "于峡部发现囊、实成分混合的等回声灶，三径约11×5×13mm，横向生长，边缘显示不够清楚。灶内伴较大钙化回声，周缘可记录到血流。",
+              "semantic_case_id": "sc_19915012958b1d05f2c7d38c9941b52e2a0b504e133bb81500382f03628092de"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_3db5769486a6f33f7ef614c6994d35ae796a286786c7c17ff50ff693ac48a7f2",
+              "generated_text": "甲状腺右叶中部见一枚囊性无回声结节，大小约7×4mm，呈非高于宽形，边缘光滑，内见彗尾征，CDFI示结节内及周边未见明显血流信号。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "右侧叶中段可扫及一处7mm×4mm液性无回声区，前后径小于横径，壁缘规整，局部伴彗尾样回声。彩色多普勒在其内及周边均未记录到明确血流；颈部淋巴结未见可疑改变。",
+              "semantic_case_id": "sc_c74283d1a4dec001265d43dd3220955afb298edfca25e7d18582c1ec9333b4b7"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_79c461c06302cbf77cf0e72c9f02ea080a46101eddb7f55192b4ef7c4feee0ac",
+              "generated_text": "可见一枚海绵状等回声结节，位于甲状腺左叶上部，边缘光滑，呈非高于宽形，大小约13×7mm，CDFI示周边可见血流信号，内未见明显强回声。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "左叶上段有一枚约13×7mm的海绵样等回声结节，整体横向排列，边缘连续光滑，内部没有明确强回声灶，血流仅在外围显示。",
+              "semantic_case_id": "sc_2f72401816112149c26de2dba3f4567c2da45a9db4f8ebacf3eed8cf281e262d"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_e578bbca2191c65f027a5346f1f051d89ff65ba54a9f39d7e84116bfac0d5ce4",
+              "generated_text": "一枚约15×8×17mm的囊实性低回声结节位于甲状腺右叶下部，内见粗大钙化，边缘光滑，CDFI示内部及周边可见血流信号，呈非高于宽形。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "右叶下段结节大小为15×8×17mm，囊实相间且回声偏低，前后径未超过横径，边缘尚光整。内部可见粗大钙化，结节内和周围均可见血流。颈区未发现形态可疑淋巴结。",
+              "semantic_case_id": "sc_187fcb7bd29c7e2b96f496169000b0a323ba381f2b313fdf33a1909c2f71abc4"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_d6c2fd02108393b2f8855e0e1850d412be3488c05433ee26cb7392832cf19bdc",
+              "generated_text": "甲状腺左叶中部见一枚实性高回声结节，大小约8×5mm，呈非高于宽形，边界欠清，周边见环形钙化，CDFI示结节内及周边未见明显血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "左侧叶中段见8×5mm实性高回声结节，呈横向生长，边缘分辨欠佳，周边见环形钙化样强回声。彩色血流检查在结节内外未见明确信号。",
+              "semantic_case_id": "sc_90244a3aa42f21616a8d526682ec7285fc931a8f42b202be7900efe13d19650a"
+            },
+            {
+              "exact_match": false,
+              "example_id": "challenge_1e3c4c208375e0192813ba023182cd27b39cc36633b666ed53a9abefcaab75fb",
+              "generated_text": "甲状腺右叶上部见一枚实性等回声结节，大小约10.5×6.5×14mm，呈非高于宽形，边缘光滑，内见彗尾征，CDFI示内部及周边可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "在右叶上段扫查到约10.5×6.5×14mm实性结节，回声与周围腺体接近，横径较前后径大，边缘平整。结节内有彗尾样强回声，内部与周边均有血流显示。",
+              "semantic_case_id": "sc_5c78f5cc5b3160a5d1ec1e605e8a86a4572a6eb123c56fe750183d545544ceb7"
+            }
+          ],
+          "fields": {
+            "hallucinated_count": 1,
+            "hallucination_rate": 0.022222222222222223,
+            "mentioned_accuracy": 1.0,
+            "mentioned_count": 225,
+            "per_field": {
+              "composition": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 26
+              },
+              "echogenic_foci": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 27
+              },
+              "echogenicity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 26
+              },
+              "location_segment": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 28
+              },
+              "location_side": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 29
+              },
+              "lymph_nodes": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 11
+              },
+              "margin": {
+                "accuracy": 1.0,
+                "hallucinated_count": 1,
+                "mentioned_count": 27
+              },
+              "shape": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 25
+              },
+              "vascularity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 26
+              }
+            },
+            "unstated_count": 45
+          },
+          "generation_error_rate": 0.0,
+          "parseable_rate": 1.0,
+          "sample_count": 30,
+          "split": "simulated_human_challenge",
+          "teacher_forced": {
+            "loss": 12.934407797167378,
+            "target_token_count": 2480,
+            "token_accuracy": 0.10362903225806451
+          },
+          "template_exact_match": {
+            "any_family_rate": 0.9333333333333333,
+            "family_counts": {
+              "descriptor_first_v2": 13,
+              "dimensions_first_v2": 4,
+              "flow_first_v2": 0,
+              "location_first_v2": 11,
+              "none": 2
+            }
+          }
+        },
+        "test_heldout_templates": {
+          "dimensions": {
+            "comparable_count": 466,
+            "count_match_rate": 1.0,
+            "exact_match_rate": 1.0,
+            "mean_abs_error_mm": 0.0,
+            "tolerance_mm": 0.05,
+            "tolerant_match_rate": 1.0
+          },
+          "eos_finished_rate": 1.0,
+          "exact_match_rate": 0.0,
+          "failure_example_count": 500,
+          "failure_examples": [
+            {
+              "exact_match": false,
+              "example_id": "sample_970917c1ae7430be85f60a7719ea05427a8735f950092d2e1568f91c8647a056",
+              "generated_text": "可见一枚实性高回声结节，位于甲状腺右叶上部，边界欠清，呈非高于宽形，大小约28.8×22.5mm，CDFI示内部可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶上部探及一枚实性高回声结节，CDFI示内部可见血流信号，大小约28.8×22.5mm，呈非高于宽形，边界欠清。",
+              "semantic_case_id": "sc_386493203bba373a01dc110f3f80c6e4562a22a65ebed614cec561a27e153366"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_70ccf28c11a0807573e3daf2dac6172ba26dd1a1a1a9a735809c77edb52f4e03",
+              "generated_text": "可见一枚实性结节，位于甲状腺左叶上部，呈非高于宽形，大小约18.6×13.9mm，CDFI示内部可见血流信号，内见粗大钙化。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶上部探及一枚实性结节，CDFI示内部可见血流信号，大小约18.6×13.9mm，内见粗大钙化，呈非高于宽形。",
+              "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_3efeb82ff2a214754d7fd845d3560a9ab0e900f9f5523fa176a0edb75a38f34e",
+              "generated_text": "一枚约18.7×15.1×18.9mm的实性结节位于甲状腺内，内未见明显强回声，边缘光滑，CDFI示结节内及周边未见明显血流信号，呈非高于宽形。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺内探及一枚实性结节，CDFI示结节内及周边未见明显血流信号，大小约18.7×15.1×18.9mm，内未见明显强回声，呈非高于宽形，边缘光滑。",
+              "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_151c5bbd21f1829b34f0adf8a481dd693987fea6de6888a75e505dcdce4b4f53",
+              "generated_text": "甲状腺左叶下部见一枚实性低回声结节，大小约25.8×31.7mm，呈高于宽形，边缘光滑，内见粗大钙化，CDFI示周边可见血流信号。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶下部探及一枚实性低回声结节，CDFI示周边可见血流信号，大小约25.8×31.7mm，内见粗大钙化，呈高于宽形，边缘光滑。颈部可见可疑淋巴结。",
+              "semantic_case_id": "sc_171b001bc57ed8a1db8312161700babe5b61c490279777bbf2d458ae70b4cde2"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_04a8b2f945037a3004fe723e9a2caebad0dc5c1483ddc78d0aa084ef4c2cdbc7",
+              "generated_text": "甲状腺右叶上部见一枚囊性无回声结节，大小约28.7×27mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶上部探及一枚囊性无回声结节，CDFI示结节内及周边未见明显血流信号，大小约28.7×27mm，内未见明显强回声，呈非高于宽形，边缘光滑。",
+              "semantic_case_id": "sc_a7b5f6c4c08c9b3b3e28420cd38ec00ada733db4cc312f0118cbc36ad048e7ee"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_1bef13f455c8eca91346dc131f51cc5e64256e7e0ebf07f003ac61b5e54ac513",
+              "generated_text": "一枚约24.5×14.9×26.7mm的实性低回声结节位于甲状腺右叶下部，内未见明显强回声，边缘光滑，CDFI示结节内及周边未见明显血流信号，呈非高于宽形。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶下部探及一枚实性低回声结节，CDFI示结节内及周边未见明显血流信号，大小约24.5×14.9×26.7mm，内未见明显强回声，呈非高于宽形，边缘光滑。颈部未见明显可疑淋巴结。",
+              "semantic_case_id": "sc_386d7e10ac07387b68ed12b4ba37ba65af62dd7c3cf61f46bc62ac7182574c6e"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_4cdf1dc1de7c66a7515a053e8212e5e55127b9fa74c2d68c8b6f9673acb96f5e",
+              "generated_text": "甲状腺左叶中部见一枚实性等回声结节，大小约6.9×3.7mm，呈非高于宽形，边缘分叶或不规则，周边见环形钙化，CDFI示周边可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶中部探及一枚实性等回声结节，CDFI示周边可见血流信号，大小约6.9×3.7mm，周边见环形钙化，呈非高于宽形，边缘分叶或不规则。",
+              "semantic_case_id": "sc_d6634e1c49f6db2d5fbcea448a95c4cb707d4fed3fe8af0a156946c2766fd6a2"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_f5b4c794f05056b6fb55e9e44fa0ed668482e2570fd6f87223d16c2a0d89cf5c",
+              "generated_text": "甲状腺右叶中部见一枚囊实性低回声结节，大小约22.9×17.9×22.9mm，内见粗大钙化。颈部未见明显可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶中部探及一枚囊实性低回声结节，大小约22.9×17.9×22.9mm，内见粗大钙化。颈部未见明显可疑淋巴结。",
+              "semantic_case_id": "sc_4b9662c6a1cdfff236a494924a0fd250ded93f26b32bf5d2799597a6c924c178"
+            }
+          ],
+          "fields": {
+            "hallucinated_count": 2,
+            "hallucination_rate": 0.002472187886279357,
+            "mentioned_accuracy": 0.999729070712544,
+            "mentioned_count": 3691,
+            "per_field": {
+              "composition": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 456
+              },
+              "echogenic_foci": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 401
+              },
+              "echogenicity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 430
+              },
+              "location_segment": {
+                "accuracy": 1.0,
+                "hallucinated_count": 1,
+                "mentioned_count": 441
+              },
+              "location_side": {
+                "accuracy": 0.9979381443298969,
+                "hallucinated_count": 1,
+                "mentioned_count": 485
+              },
+              "lymph_nodes": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 218
+              },
+              "margin": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 429
+              },
+              "shape": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 435
+              },
+              "vascularity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 396
+              }
+            },
+            "unstated_count": 809
+          },
+          "generation_error_rate": 0.0,
+          "parseable_rate": 1.0,
+          "sample_count": 500,
+          "split": "test_heldout_templates",
+          "teacher_forced": {
+            "loss": 5.300630077576427,
+            "target_token_count": 14770,
+            "token_accuracy": 0.6384563303994584
+          },
+          "template_exact_match": {
+            "any_family_rate": 0.992,
+            "family_counts": {
+              "descriptor_first_v2": 172,
+              "dimensions_first_v2": 81,
+              "flow_first_v2": 0,
+              "location_first_v2": 243,
+              "none": 4
+            }
+          }
+        },
+        "test_seen_templates": {
+          "dimensions": {
+            "comparable_count": 1398,
+            "count_match_rate": 1.0,
+            "exact_match_rate": 1.0,
+            "mean_abs_error_mm": 0.0,
+            "tolerance_mm": 0.05,
+            "tolerant_match_rate": 1.0
+          },
+          "eos_finished_rate": 1.0,
+          "exact_match_rate": 0.33066666666666666,
+          "failure_example_count": 1004,
+          "failure_examples": [
+            {
+              "exact_match": false,
+              "example_id": "sample_b16969cba0644807a9e51a2d473e43872adc7a404b3336f91c8e2174971b086b",
+              "generated_text": "可见一枚实性高回声结节，位于甲状腺右叶上部，边界欠清，呈非高于宽形，大小约28.8×22.5mm，CDFI示内部可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺右叶上部见一枚实性高回声结节，大小约28.8×22.5mm，呈非高于宽形，边界欠清，CDFI示内部可见血流信号。",
+              "semantic_case_id": "sc_386493203bba373a01dc110f3f80c6e4562a22a65ebed614cec561a27e153366"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_8930c3831c88a0c512bad6baba8a1b5b9a91dc1d4b5bed16b1ef4630ab50904e",
+              "generated_text": "可见一枚实性高回声结节，位于甲状腺右叶上部，边界欠清，呈非高于宽形，大小约28.8×22.5mm，CDFI示内部可见血流信号。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "一枚约28.8×22.5mm的实性高回声结节位于甲状腺右叶上部，边界欠清，CDFI示内部可见血流信号，呈非高于宽形。",
+              "semantic_case_id": "sc_386493203bba373a01dc110f3f80c6e4562a22a65ebed614cec561a27e153366"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_498503c128cdcb734383a66582ffb142d68d24e8e648272aa1fdeca27d0595c3",
+              "generated_text": "可见一枚实性结节，位于甲状腺左叶上部，呈非高于宽形，大小约18.6×13.9mm，CDFI示内部可见血流信号，内见粗大钙化。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺左叶上部见一枚实性结节，大小约18.6×13.9mm，呈非高于宽形，内见粗大钙化，CDFI示内部可见血流信号。",
+              "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_b117346a0e64eb2dddbec03a1371a0a930ff37246fb80ee339cbd970bcce8f19",
+              "generated_text": "可见一枚实性结节，位于甲状腺左叶上部，呈非高于宽形，大小约18.6×13.9mm，CDFI示内部可见血流信号，内见粗大钙化。",
+              "generation_error": null,
+              "matched_template_family": "descriptor_first_v2",
+              "parseable": true,
+              "reference_text": "一枚约18.6×13.9mm的实性结节位于甲状腺左叶上部，内见粗大钙化，CDFI示内部可见血流信号，呈非高于宽形。",
+              "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_0074204b1e8b76b2f063edb58593bcf95d62d18d89ae82b1f5b6f056612573b3",
+              "generated_text": "一枚约18.7×15.1×18.9mm的实性结节位于甲状腺内，内未见明显强回声，边缘光滑，CDFI示结节内及周边未见明显血流信号，呈非高于宽形。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "甲状腺内见一枚实性结节，大小约18.7×15.1×18.9mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。",
+              "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_d3649b565bf1bfb3e1a5ad6f2b7fc4639f84ec4c618e51f4615ace50b0fba549",
+              "generated_text": "一枚约18.7×15.1×18.9mm的实性结节位于甲状腺内，内未见明显强回声，边缘光滑，CDFI示结节内及周边未见明显血流信号，呈非高于宽形。",
+              "generation_error": null,
+              "matched_template_family": "dimensions_first_v2",
+              "parseable": true,
+              "reference_text": "可见一枚实性结节，位于甲状腺内，边缘光滑，呈非高于宽形，大小约18.7×15.1×18.9mm，CDFI示结节内及周边未见明显血流信号，内未见明显强回声。",
+              "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_4732e19d485c88b81025228cbf6b62370d9dc9f6f9221ccb5642cef8c45aa839",
+              "generated_text": "甲状腺左叶下部见一枚实性低回声结节，大小约25.8×31.7mm，呈高于宽形，边缘光滑，内见粗大钙化，CDFI示周边可见血流信号。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "可见一枚实性低回声结节，位于甲状腺左叶下部，边缘光滑，呈高于宽形，大小约25.8×31.7mm，CDFI示周边可见血流信号，内见粗大钙化。颈部可见可疑淋巴结。",
+              "semantic_case_id": "sc_171b001bc57ed8a1db8312161700babe5b61c490279777bbf2d458ae70b4cde2"
+            },
+            {
+              "exact_match": false,
+              "example_id": "sample_edadd297deffb2961855f361a5b968e70121d848d40ef6fd9184c6d609e455c3",
+              "generated_text": "甲状腺左叶下部见一枚实性低回声结节，大小约25.8×31.7mm，呈高于宽形，边缘光滑，内见粗大钙化，CDFI示周边可见血流信号。颈部可见可疑淋巴结。",
+              "generation_error": null,
+              "matched_template_family": "location_first_v2",
+              "parseable": true,
+              "reference_text": "一枚约25.8×31.7mm的实性低回声结节位于甲状腺左叶下部，内见粗大钙化，边缘光滑，CDFI示周边可见血流信号，呈高于宽形。颈部可见可疑淋巴结。",
+              "semantic_case_id": "sc_171b001bc57ed8a1db8312161700babe5b61c490279777bbf2d458ae70b4cde2"
+            }
+          ],
+          "fields": {
+            "hallucinated_count": 6,
+            "hallucination_rate": 0.002472187886279357,
+            "mentioned_accuracy": 0.999729070712544,
+            "mentioned_count": 11073,
+            "per_field": {
+              "composition": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1368
+              },
+              "echogenic_foci": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1203
+              },
+              "echogenicity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1290
+              },
+              "location_segment": {
+                "accuracy": 1.0,
+                "hallucinated_count": 3,
+                "mentioned_count": 1323
+              },
+              "location_side": {
+                "accuracy": 0.9979381443298969,
+                "hallucinated_count": 3,
+                "mentioned_count": 1455
+              },
+              "lymph_nodes": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 654
+              },
+              "margin": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1287
+              },
+              "shape": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1305
+              },
+              "vascularity": {
+                "accuracy": 1.0,
+                "hallucinated_count": 0,
+                "mentioned_count": 1188
+              }
+            },
+            "unstated_count": 2427
+          },
+          "generation_error_rate": 0.0,
+          "parseable_rate": 1.0,
+          "sample_count": 1500,
+          "split": "test_seen_templates",
+          "teacher_forced": {
+            "loss": 0.054412027813267864,
+            "target_token_count": 36637,
+            "token_accuracy": 0.9722411769522614
+          },
+          "template_exact_match": {
+            "any_family_rate": 0.992,
+            "family_counts": {
+              "descriptor_first_v2": 516,
+              "dimensions_first_v2": 243,
+              "flow_first_v2": 0,
+              "location_first_v2": 729,
+              "none": 12
+            }
+          }
+        }
+      }
+    }
+  ],
+  "comparison": {
+    "note": "Deltas are primary minus reference. Challenge rows stay separate from template splits.",
+    "primary_checkpoint": "step_00004900.pt",
+    "reference_checkpoint": "step_00005000.pt",
+    "splits": {
+      "simulated_human_challenge": {
+        "any_template_family_rate": 0.033333333333333326,
+        "dimension_exact_match_rate": 0.0,
+        "exact_match_rate": 0.0,
+        "mentioned_field_accuracy": 0.0,
+        "parseable_rate": 0.0,
+        "teacher_forced_loss": 0.20934708733712526,
+        "teacher_forced_token_accuracy": 0.00040322580645162087
+      },
+      "test_heldout_templates": {
+        "any_template_family_rate": 0.0040000000000000036,
+        "dimension_exact_match_rate": 0.0,
+        "exact_match_rate": 0.0,
+        "mentioned_field_accuracy": 0.0,
+        "parseable_rate": 0.0,
+        "teacher_forced_loss": 0.08137123305489347,
+        "teacher_forced_token_accuracy": 0.005010155721056231
+      },
+      "test_seen_templates": {
+        "any_template_family_rate": 0.0040000000000000036,
+        "dimension_exact_match_rate": 0.0,
+        "exact_match_rate": 0.001333333333333353,
+        "mentioned_field_accuracy": 0.0,
+        "parseable_rate": 0.0,
+        "teacher_forced_loss": -0.00016067783717187145,
+        "teacher_forced_token_accuracy": 0.00010917924502551468
+      }
+    }
+  },
+  "created_at_utc": "2026-08-25T02:21:35.525477+00:00",
+  "device": "cuda",
+  "evaluation_task": "generate",
+  "evaluation_version": "1.0.0",
+  "freeze_id": "synthetic_v1_5k_frozen_v1",
+  "freeze_record_sha256": "0947163809972d3e6d5db5ea0e8957c13f6f514e778743faf66c240a9f7bd58a",
+  "limit_per_split": null,
+  "notes": [
+    "Challenge metrics are reported separately and are not averaged with template splits.",
+    "Field accuracy uses an independent rule parser, not the model under test.",
+    "This is a learning-demo evaluation, not a clinical validation."
+  ],
+  "tokenizer_model_sha256": "743af34aa2d8bec332f82ce6756cd1458e9687244def23ece5c5b60ee8883ac2"
+}

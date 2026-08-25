@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SonoGPT 本地演示</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #57534e;
+      --paper: #f3efe6;
+      --card: #fffcf7;
+      --line: #d6d3d1;
+      --teal: #0f766e;
+      --teal-ink: #f0fdfa;
+      --warn-bg: #fef3c7;
+      --warn-ink: #78350f;
+      --bad-bg: #fee2e2;
+      --bad-ink: #991b1b;
+      --ok-bg: #dcfce7;
+      --ok-ink: #14532d;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(1200px 400px at 10% -10%, #ccfbf1 0%, transparent 50%),
+        var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    header {
+      background: #1c1917;
+      color: #fafaf9;
+      padding: 1.25rem 1.5rem 1.1rem;
+      border-bottom: 4px solid var(--teal);
+    }
+    header .kicker {
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      color: #99f6e4;
+      text-transform: uppercase;
+    }
+    header h1 {
+      margin: 0.2rem 0 0.35rem;
+      font-size: 1.65rem;
+      font-weight: 650;
+    }
+    header p { margin: 0; color: #d6d3d1; font-size: 0.95rem; max-width: 52rem; }
+    .disclaimer {
+      background: var(--warn-bg);
+      color: var(--warn-ink);
+      padding: 0.65rem 1.5rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    main {
+      display: grid;
+      grid-template-columns: minmax(18rem, 26rem) 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem 1.15rem;
+      box-shadow: 0 10px 30px rgba(28, 25, 23, 0.04);
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+    }
+    .presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+    }
+    .presets button, .actions button, select, input[type="number"] {
+      font: inherit;
+    }
+    .presets button {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .presets button[aria-pressed="true"] {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--teal-ink);
+    }
+    label.field {
+      display: block;
+      margin: 0.55rem 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    label.field > span { display: block; margin-bottom: 0.2rem; }
+    select, input[type="number"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.4rem 0.5rem;
+      background: #fff;
+      color: var(--ink);
+    }
+    .dims {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+    .hint { font-size: 0.78rem; color: #78716c; margin: 0.15rem 0 0; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .actions button {
+      border: 0;
+      border-radius: 8px;
+      padding: 0.55rem 0.9rem;
+      cursor: pointer;
+    }
+    .actions button.primary {
+      background: var(--teal);
+      color: #fff;
+      font-weight: 650;
+    }
+    .actions button.primary:disabled {
+      background: #a8a29e;
+      cursor: not-allowed;
+    }
+    .actions button.ghost {
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+    .check {
+      display: flex;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.88rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+    }
+    .status {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.7rem;
+    }
+    .report {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      background: #1c1917;
+      color: #fafaf9;
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      min-height: 5.5rem;
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.8rem 0; }
+    .badge {
+      font-size: 0.78rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-weight: 650;
+    }
+    .ok { background: var(--ok-bg); color: var(--ok-ink); }
+    .warn { background: var(--warn-bg); color: var(--warn-ink); }
+    .bad { background: var(--bad-bg); color: var(--bad-ink); }
+    .muted { background: #e7e5e4; color: #44403c; }
+    details {
+      margin-top: 0.75rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.6rem;
+    }
+    details > summary {
+      cursor: pointer;
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #f5f5f4;
+      border-radius: 8px;
+      padding: 0.7rem;
+      font-size: 0.78rem;
+      overflow: auto;
+    }
+    footer {
+      padding: 0 1.5rem 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .error { color: var(--bad-ink); font-size: 0.88rem; margin-top: 0.6rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="kicker">Local demo · 16M from scratch</div>
+    <h1>SonoGPT</h1>
+    <p>从零训练的甲状腺单结节文本模型。左侧填结构化所见，右侧生成中文报告。不接收超声图像，也不做诊断。</p>
+  </header>
+  <div class="disclaimer">学习演示，不能用于临床诊断，也不能当作 TI-RADS 或良恶性判断。</div>
+  <main>
+    <section class="card" aria-labelledby="input-title">
+      <h2 id="input-title">输入 · 单结节所见</h2>
+      <div class="presets" id="presets"></div>
+      <form id="exam-form"></form>
+      <label class="check">
+        <input type="checkbox" id="fallback" checked>
+        质控失败时回退到确定性模板
+      </label>
+      <div class="actions">
+        <button type="button" class="primary" id="btn-generate">生成报告</button>
+        <button type="button" class="ghost" id="btn-template">只看模板</button>
+      </div>
+      <p class="status" id="health"></p>
+      <p class="error" id="form-error" hidden></p>
+    </section>
+    <section class="card" aria-labelledby="output-title">
+      <h2 id="output-title">输出</h2>
+      <div class="report" id="report">选择左侧示例，或直接点「生成报告」。</div>
+      <div class="badges" id="badges"></div>
+      <div id="qc"></div>
+      <details open>
+        <summary>确定性模板对照（规则，不是模型）</summary>
+        <p id="template-report" class="hint">尚未生成。</p>
+      </details>
+      <details>
+        <summary>规则抽取结果（V1 没有训练 extract 模型）</summary>
+        <pre id="extract-json">尚未生成。</pre>
+      </details>
+      <details>
+        <summary>提交给模型的 JSON</summary>
+        <pre id="exam-json">尚未提交。</pre>
+      </details>
+      <p class="error" id="out-error" hidden></p>
+    </section>
+  </main>
+  <footer>
+    默认 Checkpoint：step_00004900.pt · 冻结：synthetic_v1_5k_frozen_v1 · 本页只绑定 127.0.0.1，不上传数据。
+  </footer>
+  <script>
+    const formRoot = document.getElementById("exam-form");
+    const presetsRoot = document.getElementById("presets");
+    const healthEl = document.getElementById("health");
+    const formError = document.getElementById("form-error");
+    const outError = document.getElementById("out-error");
+    const reportEl = document.getElementById("report");
+    const badgesEl = document.getElementById("badges");
+    const qcEl = document.getElementById("qc");
+    const templateEl = document.getElementById("template-report");
+    const extractEl = document.getElementById("extract-json");
+    const examJsonEl = document.getElementById("exam-json");
+    const btnGenerate = document.getElementById("btn-generate");
+    const btnTemplate = document.getElementById("btn-template");
+
+    let catalog = null;
+    let activePreset = null;
+
+    function showError(el, message) {
+      if (!message) {
+        el.hidden = true;
+        el.textContent = "";
+        return;
+      }
+      el.hidden = false;
+      el.textContent = message;
+    }
+
+    function renderSelect(field) {
+      const label = document.createElement("label");
+      label.className = "field";
+      label.htmlFor = field.id;
+      const span = document.createElement("span");
+      span.textContent = field.label;
+      const select = document.createElement("select");
+      select.id = field.id;
+      select.name = field.id;
+      for (const option of field.options) {
+        const node = document.createElement("option");
+        node.value = option.value;
+        node.textContent = option.label;
+        select.appendChild(node);
+      }
+      label.appendChild(span);
+      label.appendChild(select);
+      if (field.hint) {
+        const hint = document.createElement("p");
+        hint.className = "hint";
+        hint.textContent = field.hint;
+        label.appendChild(hint);
+      }
+      return label;
+    }
+
+    function renderDimensionField(field) {
+      const wrap = document.createElement("div");
+      wrap.appendChild(renderSelect(field));
+      const dims = document.createElement("div");
+      dims.className = "dims";
+      dims.id = "dim-inputs";
+      ["横径", "前后径", "长径（可选）"].forEach((name, index) => {
+        const label = document.createElement("label");
+        label.className = "field";
+        label.htmlFor = "dim" + index;
+        const span = document.createElement("span");
+        span.textContent = name;
+        const input = document.createElement("input");
+        input.type = "number";
+        input.min = "0.1";
+        input.step = "0.1";
+        input.id = "dim" + index;
+        label.appendChild(span);
+        label.appendChild(input);
+        dims.appendChild(label);
+      });
+      wrap.appendChild(dims);
+      return wrap;
+    }
+
+    function syncDimensionVisibility() {
+      const mode = document.getElementById("dimensions_mode").value;
+      const box = document.getElementById("dim-inputs");
+      const third = document.getElementById("dim2").closest("label");
+      const showNumbers = mode === "two" || mode === "three";
+      box.style.display = showNumbers ? "grid" : "none";
+      third.style.display = mode === "three" ? "block" : "none";
+    }
+
+    function syncSegment() {
+      const side = document.getElementById("side").value;
+      const segment = document.getElementById("segment");
+      if (side === "isthmus") {
+        segment.value = "not_applicable";
+        segment.disabled = true;
+      } else {
+        segment.disabled = false;
+        if (segment.value === "not_applicable") segment.value = "middle";
+      }
+    }
+
+    function renderForm() {
+      formRoot.innerHTML = "";
+      for (const field of catalog.fields) {
+        formRoot.appendChild(
+          field.kind === "dimensions" ? renderDimensionField(field) : renderSelect(field)
+        );
+      }
+      document.getElementById("side").addEventListener("change", syncSegment);
+      document.getElementById("dimensions_mode").addEventListener("change", syncDimensionVisibility);
+    }
+
+    function renderPresets() {
+      presetsRoot.innerHTML = "";
+      for (const preset of catalog.presets) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = preset.title;
+        button.title = preset.summary;
+        button.addEventListener("click", () => applyPreset(preset.id));
+        presetsRoot.appendChild(button);
+      }
+    }
+
+    function markPreset(id) {
+      activePreset = id;
+      for (const button of presetsRoot.querySelectorAll("button")) {
+        const preset = catalog.presets.find((item) => item.title === button.textContent);
+        button.setAttribute("aria-pressed", String(preset && preset.id === id));
+      }
+    }
+
+    function applyExam(exam) {
+      const nodule = exam.nodules[0];
+      document.getElementById("side").value = nodule.location.side;
+      document.getElementById("segment").value = nodule.location.segment;
+      const dims = nodule.dimensions_mm;
+      if (Array.isArray(dims)) {
+        document.getElementById("dimensions_mode").value = dims.length === 3 ? "three" : "two";
+        document.getElementById("dim0").value = dims[0];
+        document.getElementById("dim1").value = dims[1];
+        document.getElementById("dim2").value = dims[2] ?? "";
+      } else {
+        document.getElementById("dimensions_mode").value = dims;
+        document.getElementById("dim0").value = "";
+        document.getElementById("dim1").value = "";
+        document.getElementById("dim2").value = "";
+      }
+      for (const key of ["composition", "echogenicity", "shape", "margin", "echogenic_foci", "vascularity"]) {
+        document.getElementById(key).value = nodule[key];
+      }
+      document.getElementById("lymph_nodes").value = exam.lymph_nodes;
+      syncSegment();
+      syncDimensionVisibility();
+    }
+
+    function applyPreset(id) {
+      const preset = catalog.presets.find((item) => item.id === id);
+      if (!preset) return;
+      applyExam(preset.exam);
+      markPreset(id);
+    }
+
+    function numberValue(id) {
+      const raw = document.getElementById(id).value;
+      if (raw === "") return null;
+      const value = Number(raw);
+      return Number.isFinite(value) ? value : null;
+    }
+
+    function buildExam() {
+      const mode = document.getElementById("dimensions_mode").value;
+      let dimensions_mm = mode;
+      if (mode === "two" || mode === "three") {
+        const values = [numberValue("dim0"), numberValue("dim1")];
+        if (mode === "three") values.push(numberValue("dim2"));
+        if (values.some((item) => item === null || item <= 0)) {
+          throw new Error("请填写大于 0 的毫米尺寸。");
+        }
+        dimensions_mm = values;
+      }
+      const side = document.getElementById("side").value;
+      return {
+        schema_version: "1.0.0",
+        organ: "thyroid",
+        lymph_nodes: document.getElementById("lymph_nodes").value,
+        nodules: [{
+          nodule_id: "n1",
+          location: {
+            side,
+            segment: side === "isthmus" ? "not_applicable" : document.getElementById("segment").value,
+          },
+          dimensions_mm,
+          composition: document.getElementById("composition").value,
+          echogenicity: document.getElementById("echogenicity").value,
+          shape: document.getElementById("shape").value,
+          margin: document.getElementById("margin").value,
+          echogenic_foci: document.getElementById("echogenic_foci").value,
+          vascularity: document.getElementById("vascularity").value,
+        }],
+      };
+    }
+
+    function badge(text, cls) {
+      const span = document.createElement("span");
+      span.className = "badge " + cls;
+      span.textContent = text;
+      return span;
+    }
+
+    function renderOutput(payload, exam) {
+      reportEl.textContent = payload.report || "（空报告）";
+      badgesEl.innerHTML = "";
+      if (payload.task === "template_preview") {
+        badgesEl.appendChild(badge("确定性模板", "muted"));
+        badgesEl.appendChild(badge("未调用模型", "warn"));
+        templateEl.textContent = payload.report;
+        extractEl.textContent = "模板预览不跑抽取。";
+      } else {
+        badgesEl.appendChild(badge(payload.model_used && !payload.used_fallback ? "15M 模型生成" : "已回退模板", payload.used_fallback ? "warn" : "ok"));
+        badgesEl.appendChild(badge(payload.qc && payload.qc.passed ? "QC 通过" : "QC 未通过", payload.qc && payload.qc.passed ? "ok" : "bad"));
+        if (payload.matches_default_template) {
+          badgesEl.appendChild(badge("与默认模板逐字相同", "ok"));
+        } else {
+          badgesEl.appendChild(badge("与默认模板不同（允许，模型可写其他训练语序）", "muted"));
+        }
+        if (payload.eos_finished) badgesEl.appendChild(badge("EOS 正常结束", "ok"));
+        if (payload.info && payload.info.device) {
+          badgesEl.appendChild(badge("设备 " + payload.info.device, "muted"));
+        }
+        if (typeof payload.elapsed_seconds === "number") {
+          badgesEl.appendChild(badge(payload.elapsed_seconds.toFixed(2) + " s", "muted"));
+        }
+        templateEl.textContent = payload.template_report || "";
+        extractEl.textContent = JSON.stringify(payload.extract, null, 2);
+        qcEl.textContent = payload.qc && payload.qc.findings && payload.qc.findings.length
+          ? "质控发现：" + payload.qc.findings.map((item) => (item.rule_id || "") + " " + (item.message || "")).join("；")
+          : "";
+      }
+      examJsonEl.textContent = JSON.stringify(exam, null, 2);
+    }
+
+    async function postJson(url, body) {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const payload = await response.json();
+      if (!response.ok) {
+        const detail = typeof payload.detail === "string"
+          ? payload.detail
+          : JSON.stringify(payload.detail || payload, null, 2);
+        throw new Error(detail);
+      }
+      return payload;
+    }
+
+    async function onGenerate() {
+      showError(formError, "");
+      showError(outError, "");
+      let exam;
+      try {
+        exam = buildExam();
+      } catch (error) {
+        showError(formError, error.message);
+        return;
+      }
+      btnGenerate.disabled = true;
+      reportEl.textContent = "正在生成…";
+      try {
+        const payload = await postJson("/api/generate", {
+          exam,
+          fallback_template: document.getElementById("fallback").checked,
+        });
+        renderOutput(payload, exam);
+      } catch (error) {
+        showError(outError, error.message);
+        reportEl.textContent = "生成失败。";
+      } finally {
+        if (catalog.health && catalog.health.checkpoint_ready) btnGenerate.disabled = false;
+      }
+    }
+
+    async function onTemplate() {
+      showError(formError, "");
+      showError(outError, "");
+      let exam;
+      try {
+        exam = buildExam();
+      } catch (error) {
+        showError(formError, error.message);
+        return;
+      }
+      try {
+        const payload = await postJson("/api/template", { exam });
+        renderOutput(payload, exam);
+      } catch (error) {
+        showError(outError, error.message);
+      }
+    }
+
+    async function boot() {
+      const response = await fetch("/api/meta");
+      catalog = await response.json();
+      renderPresets();
+      renderForm();
+      applyPreset("smoke_right_solid");
+      const health = catalog.health || {};
+      const ready = Boolean(health.checkpoint_ready);
+      healthEl.textContent = ready
+        ? "Checkpoint 已就绪：" + health.checkpoint_name + " · 设备 " + health.device
+        : "未找到 Checkpoint。模板预览仍可用，生成需要按 COMPANY_HANDOFF.md 拷贝 step_00004900.pt。";
+      btnGenerate.disabled = !ready;
+      btnGenerate.addEventListener("click", onGenerate);
+      btnTemplate.addEventListener("click", onTemplate);
+    }
+
+    boot().catch((error) => {
+      showError(formError, "无法加载 /api/meta：" + error.message);
+    });
+  </script>
+</body>
+</html>

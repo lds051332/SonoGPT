@@ -1,0 +1,30 @@
+{
+  "elapsed_seconds": 0.00028670000028796494,
+  "info": {
+    "checkpoint_name": "step_00004900.pt",
+    "clinical_use": false,
+    "device": "cuda",
+    "extract_task_trained": false,
+    "extractor_version": "1.0.0",
+    "freeze_id": "synthetic_v1_5k_frozen_v1",
+    "generate_task_trained": true,
+    "inference_version": "1.0.0",
+    "intended_use": "learning_demo_only",
+    "package_version": "0.1.0",
+    "parameter_count": null,
+    "qc_rules_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "tokenizer_sha256": "743af34aa2d8bec332f82ce6756cd1458e9687244def23ece5c5b60ee8883ac2"
+  },
+  "notes": [
+    "QC findings are engineering checks, not diagnostic advice."
+  ],
+  "qc": {
+    "error_count": 0,
+    "findings": [],
+    "passed": true,
+    "rules_version": "1.0.0",
+    "warning_count": 0
+  },
+  "task": "qc"
+}

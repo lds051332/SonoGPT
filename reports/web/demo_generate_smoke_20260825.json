@@ -1,0 +1,106 @@
+{
+  "task": "web_demo",
+  "web_demo_version": "1.0.0",
+  "clinical_use": false,
+  "intended_use": "learning_demo_only",
+  "report": "甲状腺右叶中部见一枚实性低回声结节，大小约8×6mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。颈部未见明显可疑淋巴结。",
+  "used_fallback": false,
+  "fallback_reason": null,
+  "model_used": true,
+  "eos_finished": true,
+  "generation_error": null,
+  "qc": {
+    "passed": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "rules_version": "1.0.0",
+    "findings": []
+  },
+  "exam": {
+    "schema_version": "1.0.0",
+    "organ": "thyroid",
+    "nodules": [
+      {
+        "nodule_id": "n1",
+        "location": {
+          "side": "right",
+          "segment": "middle"
+        },
+        "dimensions_mm": [
+          8.0,
+          6.0
+        ],
+        "composition": "solid",
+        "echogenicity": "hypoechoic",
+        "shape": "wider_than_tall",
+        "margin": "smooth",
+        "echogenic_foci": "none",
+        "vascularity": "none"
+      }
+    ],
+    "lymph_nodes": "no_suspicious"
+  },
+  "canonical_json": "{\"lymph_nodes\":\"no_suspicious\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[8.0,6.0],\"echogenic_foci\":\"none\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"middle\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+  "template_report": "甲状腺右叶中部见一枚实性低回声结节，大小约8×6mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。颈部未见明显可疑淋巴结。",
+  "matches_default_template": true,
+  "extract": {
+    "extractor": "rule_extract",
+    "model_used": false,
+    "parseable": true,
+    "exam": {
+      "schema_version": "1.0.0",
+      "organ": "thyroid",
+      "nodules": [
+        {
+          "nodule_id": "n1",
+          "location": {
+            "side": "right",
+            "segment": "middle"
+          },
+          "dimensions_mm": [
+            8.0,
+            6.0
+          ],
+          "composition": "solid",
+          "echogenicity": "hypoechoic",
+          "shape": "wider_than_tall",
+          "margin": "smooth",
+          "echogenic_foci": "none",
+          "vascularity": "none"
+        }
+      ],
+      "lymph_nodes": "no_suspicious"
+    },
+    "qc": {
+      "passed": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "rules_version": "1.0.0",
+      "findings": []
+    }
+  },
+  "checkpoint_sha256": "497ee0595eb95d04774d8a36f11f38a404c37e0376418502ae6eb3f6b06651b3",
+  "freeze_record_sha256": "0947163809972d3e6d5db5ea0e8957c13f6f514e778743faf66c240a9f7bd58a",
+  "elapsed_seconds": 1.3671428000006927,
+  "info": {
+    "package_version": "0.1.0",
+    "inference_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "extractor_version": "1.0.0",
+    "qc_rules_version": "1.0.0",
+    "freeze_id": "synthetic_v1_5k_frozen_v1",
+    "tokenizer_sha256": "743af34aa2d8bec332f82ce6756cd1458e9687244def23ece5c5b60ee8883ac2",
+    "checkpoint_name": "step_00004900.pt",
+    "device": "cuda",
+    "parameter_count": 15003648,
+    "generate_task_trained": true,
+    "extract_task_trained": false,
+    "intended_use": "learning_demo_only",
+    "clinical_use": false
+  },
+  "notes": [
+    "V1 generate uses the 15M Transformer.",
+    "Extract uses the rule baseline, not the model.",
+    "Not for clinical diagnosis."
+  ]
+}

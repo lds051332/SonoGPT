@@ -1,0 +1,624 @@
+{
+  "challenge_freeze_id": "simulated_human_challenge_v1",
+  "challenge_freeze_sha256": "ccee68088fff6a1f0127e9c4c669efcc93d0cc843517747dfe3e56048267b68e",
+  "created_at_utc": "2026-08-25T02:32:15.859521+00:00",
+  "evaluation_task": "extract",
+  "evaluation_version": "1.0.0",
+  "extractor": "rule_extract",
+  "extractor_version": "1.0.0",
+  "freeze_id": "synthetic_v1_5k_frozen_v1",
+  "freeze_record_sha256": "0947163809972d3e6d5db5ea0e8957c13f6f514e778743faf66c240a9f7bd58a",
+  "limit_per_split": null,
+  "notes": [
+    "Rule extraction is independent of SonoGPT weights.",
+    "Exact structure match treats unknown and not_mentioned as different.",
+    "Challenge metrics are reported separately.",
+    "This is a learning-demo evaluation, not a clinical validation."
+  ],
+  "splits": {
+    "fixtures": {
+      "dimensions": {
+        "comparable_count": 46,
+        "count_match_rate": 1.0,
+        "exact_match_rate": 1.0,
+        "mean_abs_error_mm": 0.0,
+        "tolerance_mm": 0.05,
+        "tolerant_match_rate": 1.0
+      },
+      "eos_finished_rate": 1.0,
+      "exact_match_rate": 0.8,
+      "exact_structure_match_rate": 0.8,
+      "failure_example_count": 10,
+      "failure_examples": [
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-012",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"not_mentioned\",\"dimensions_mm\":[14.0,12.0],\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"very_hypoechoic\",\"location\":{\"segment\":\"not_mentioned\",\"side\":\"right\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶见一枚极低回声结节，大小约14×12mm。",
+          "semantic_case_id": "fixture-012"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-014",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"mixed_cystic_solid\",\"dimensions_mm\":\"not_mentioned\",\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"not_mentioned\",\"side\":\"not_mentioned\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺内见一枚囊实性结节，呈非高于宽形。",
+          "semantic_case_id": "fixture-014"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-015",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":\"not_mentioned\",\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"isoechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶上部见一枚实性等回声结节，边缘光滑。",
+          "semantic_case_id": "fixture-015"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-042",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"mixed_cystic_solid\",\"dimensions_mm\":\"not_mentioned\",\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"isoechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"ill_defined\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺左叶上部见一枚囊实性等回声结节，边界欠清。",
+          "semantic_case_id": "fixture-042"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-043",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"not_mentioned\",\"dimensions_mm\":[8.0,6.0],\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"middle\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶中部见一枚结节，大小约8×6mm，呈非高于宽形，边缘光滑。",
+          "semantic_case_id": "fixture-043"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-044",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[10.0,8.0,7.0],\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"middle\",\"side\":\"left\"},\"margin\":\"lobulated_or_irregular\",\"nodule_id\":\"n1\",\"shape\":\"taller_than_wide\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺左叶中部见一枚实性结节，大小约10×8×7mm，呈高于宽形，边缘分叶或不规则。",
+          "semantic_case_id": "fixture-044"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-045",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"cystic\",\"dimensions_mm\":[5.0,3.0],\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"lower\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶下部见一枚囊性结节，大小约5×3mm，呈非高于宽形，边缘光滑。",
+          "semantic_case_id": "fixture-045"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "fixture-046",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"not_mentioned\",\"dimensions_mm\":[12.0,9.0],\"echogenic_foci\":\"none\",\"echogenicity\":\"hyperechoic\",\"location\":{\"segment\":\"lower\",\"side\":\"left\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"internal\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺左叶下部见一枚高回声结节，大小约12×9mm，内未见明显强回声，CDFI示内部可见血流信号。",
+          "semantic_case_id": "fixture-046"
+        }
+      ],
+      "fields": {
+        "hallucinated_count": 0,
+        "hallucination_rate": 0.0,
+        "mentioned_accuracy": 1.0,
+        "mentioned_count": 357,
+        "per_field": {
+          "composition": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 45
+          },
+          "echogenic_foci": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 40
+          },
+          "echogenicity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 45
+          },
+          "location_segment": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 43
+          },
+          "location_side": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 47
+          },
+          "lymph_nodes": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 13
+          },
+          "margin": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 45
+          },
+          "shape": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 41
+          },
+          "vascularity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 38
+          }
+        },
+        "unstated_count": 93
+      },
+      "generation_error_rate": 0.0,
+      "parseable_rate": 1.0,
+      "sample_count": 50,
+      "split": "fixtures",
+      "teacher_forced": {
+        "loss": null,
+        "target_token_count": 0,
+        "token_accuracy": null
+      },
+      "template_exact_match": {
+        "any_family_rate": 0.0,
+        "family_counts": {
+          "descriptor_first_v2": 0,
+          "dimensions_first_v2": 0,
+          "flow_first_v2": 0,
+          "location_first_v2": 0,
+          "none": 50
+        }
+      }
+    },
+    "simulated_human_challenge": {
+      "dimensions": {
+        "comparable_count": 27,
+        "count_match_rate": 1.0,
+        "exact_match_rate": 1.0,
+        "mean_abs_error_mm": 0.0,
+        "tolerance_mm": 0.05,
+        "tolerant_match_rate": 1.0
+      },
+      "eos_finished_rate": 1.0,
+      "exact_match_rate": 0.7666666666666667,
+      "exact_structure_match_rate": 0.7666666666666667,
+      "failure_example_count": 7,
+      "failure_examples": [
+        {
+          "exact_structure_match": false,
+          "example_id": "challenge_778d74efb41a64dcfd3b5086a4393c42892d6fcc9a269ac438ae2027e9e1dc13",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"not_mentioned\",\"dimensions_mm\":\"not_mentioned\",\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"not_mentioned\",\"side\":\"not_mentioned\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "受显示条件限制，结节的具体侧别、大小、内部成分、回声、形态、边缘、强回声灶及血流情况均无法可靠判定，颈部淋巴结情况亦不能明确。",
+          "semantic_case_id": "sc_ae0e9477c6f8afdab6d7bb5d7fc82659b5ce8cd834ef1413a829b8ea6ab9f2c1"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "challenge_f1c338d431628d821dea2f9a73195b26ef1d83718e3e13b733078f2e0c8e9221",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":\"not_mentioned\",\"echogenic_foci\":\"punctate_echogenic_foci\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"lobulated_or_irregular\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"internal\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "左叶上段实性低回声结节，边缘呈分叶样不规则，内有细点状强回声和血流信号。资料未给出结节径线及纵横形态，颈部淋巴结状态无法判断。",
+          "semantic_case_id": "sc_73a37e0251851cdc732ff17be8710d22dd8337d9a6e73bcb78bec2d18b8d4df1"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "challenge_fd1a654609316c37888e081834469871f8374fc3b09d317ff069231317b258be",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[12.0,7.0],\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"lower\",\"side\":\"left\"},\"margin\":\"ill_defined\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "左叶下段见12×7mm实性结节，边界欠清；其回声水平、纵横形态、强回声灶以及血流情况受限，均不能可靠判断。",
+          "semantic_case_id": "sc_a67a000a6b5551c8060497049532e49cc98d14a441cdf307f2809589e2c1e0aa"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "challenge_355922ec380ee6addfc6df5acde6b10b34d70b04226d6f905c981e67d5103a38",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"cystic\",\"dimensions_mm\":[9.0,4.0],\"echogenic_foci\":\"not_mentioned\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "左叶上段有一枚9×4mm囊性结节；受图像条件影响，其内部回声、纵横形态、边缘、强回声灶和血流特征均无法进一步确认。",
+          "semantic_case_id": "sc_897274a097d23495de50c0f6b3ad071019d297414d603ae4b6aa489d9db38afc"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "challenge_fda6560cb6c56f7220ad096408581ef19dbfa6e7d1338c08545f99ce5a1d57ac",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":\"not_mentioned\",\"echogenic_foci\":\"none\",\"echogenicity\":\"isoechoic\",\"location\":{\"segment\":\"lower\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "右叶下段可见实性等回声结节，横径大于前后径，边缘平整，内部未见强回声，彩色血流亦未显示；结节具体大小无法获得。",
+          "semantic_case_id": "sc_3222bef6d7a30114895808e12d31c31a5c4a765c49ceb7430d3da2d38c46c8fe"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "challenge_3e06333b5ad41086b75b3edd0f1315288363a294b3fc01bbfae4b50624309d54",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"mixed_cystic_solid\",\"dimensions_mm\":[10.0,6.0],\"echogenic_foci\":\"macrocalcification\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"not_applicable\",\"side\":\"isthmus\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"peripheral\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "峡部囊实性结节约10×6mm，横径较大，内部回声水平及边缘情况不能明确；可见粗大钙化，血流主要位于结节周围。",
+          "semantic_case_id": "sc_7bd61a0e113a8d8249b27176fb893d89a85ea0c3e114ea41b2161ed93e770979"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "challenge_8c603cf2463eb1167a723edf4e2be119ce9d612249efd8ddfc3836304695939a",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"not_mentioned\",\"dimensions_mm\":[11.0,6.0],\"echogenic_foci\":\"punctate_echogenic_foci\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "左叶上段11×6mm低回声结节，具体成分无法确定；结节横径较大、边缘平滑，内部散在点状强回声，但未显示明显血流。",
+          "semantic_case_id": "sc_40180ba9c4bfa76855a188c4dae3b61115a80df22942314bfa2b45ca9cdac271"
+        }
+      ],
+      "fields": {
+        "hallucinated_count": 0,
+        "hallucination_rate": 0.0,
+        "mentioned_accuracy": 1.0,
+        "mentioned_count": 225,
+        "per_field": {
+          "composition": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 26
+          },
+          "echogenic_foci": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 27
+          },
+          "echogenicity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 26
+          },
+          "location_segment": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 28
+          },
+          "location_side": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 29
+          },
+          "lymph_nodes": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 11
+          },
+          "margin": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 27
+          },
+          "shape": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 25
+          },
+          "vascularity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 26
+          }
+        },
+        "unstated_count": 45
+      },
+      "generation_error_rate": 0.0,
+      "parseable_rate": 1.0,
+      "sample_count": 30,
+      "split": "simulated_human_challenge",
+      "teacher_forced": {
+        "loss": null,
+        "target_token_count": 0,
+        "token_accuracy": null
+      },
+      "template_exact_match": {
+        "any_family_rate": 0.0,
+        "family_counts": {
+          "descriptor_first_v2": 0,
+          "dimensions_first_v2": 0,
+          "flow_first_v2": 0,
+          "location_first_v2": 0,
+          "none": 30
+        }
+      }
+    },
+    "test_heldout_templates": {
+      "dimensions": {
+        "comparable_count": 466,
+        "count_match_rate": 1.0,
+        "exact_match_rate": 1.0,
+        "mean_abs_error_mm": 0.0,
+        "tolerance_mm": 0.05,
+        "tolerant_match_rate": 1.0
+      },
+      "eos_finished_rate": 1.0,
+      "exact_match_rate": 0.61,
+      "exact_structure_match_rate": 0.61,
+      "failure_example_count": 195,
+      "failure_examples": [
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_70ccf28c11a0807573e3daf2dac6172ba26dd1a1a1a9a735809c77edb52f4e03",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.6,13.9],\"echogenic_foci\":\"macrocalcification\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"internal\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺左叶上部探及一枚实性结节，CDFI示内部可见血流信号，大小约18.6×13.9mm，内见粗大钙化，呈非高于宽形。",
+          "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_3efeb82ff2a214754d7fd845d3560a9ab0e900f9f5523fa176a0edb75a38f34e",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.7,15.1,18.9],\"echogenic_foci\":\"none\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"not_mentioned\",\"side\":\"not_mentioned\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺内探及一枚实性结节，CDFI示结节内及周边未见明显血流信号，大小约18.7×15.1×18.9mm，内未见明显强回声，呈非高于宽形，边缘光滑。",
+          "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_04a8b2f945037a3004fe723e9a2caebad0dc5c1483ddc78d0aa084ef4c2cdbc7",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"cystic\",\"dimensions_mm\":[28.7,27.0],\"echogenic_foci\":\"none\",\"echogenicity\":\"anechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶上部探及一枚囊性无回声结节，CDFI示结节内及周边未见明显血流信号，大小约28.7×27mm，内未见明显强回声，呈非高于宽形，边缘光滑。",
+          "semantic_case_id": "sc_a7b5f6c4c08c9b3b3e28420cd38ec00ada733db4cc312f0118cbc36ad048e7ee"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_f5b4c794f05056b6fb55e9e44fa0ed668482e2570fd6f87223d16c2a0d89cf5c",
+          "extracted_json": "{\"lymph_nodes\":\"no_suspicious\",\"nodules\":[{\"composition\":\"mixed_cystic_solid\",\"dimensions_mm\":[22.9,17.9,22.9],\"echogenic_foci\":\"macrocalcification\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"middle\",\"side\":\"right\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"not_mentioned\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶中部探及一枚囊实性低回声结节，大小约22.9×17.9×22.9mm，内见粗大钙化。颈部未见明显可疑淋巴结。",
+          "semantic_case_id": "sc_4b9662c6a1cdfff236a494924a0fd250ded93f26b32bf5d2799597a6c924c178"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_1d3b6608008aa3deb61c695d17d51ad24bb4632a82a96e432484be2f13f8f59a",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":\"not_mentioned\",\"echogenic_foci\":\"none\",\"echogenicity\":\"isoechoic\",\"location\":{\"segment\":\"not_applicable\",\"side\":\"isthmus\"},\"margin\":\"extrathyroidal_extension\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺峡部探及一枚实性等回声结节，内未见明显强回声，呈非高于宽形，可见甲状腺外侵犯征象。",
+          "semantic_case_id": "sc_a2fbc8b8ff15381f59383fc8f05c39d58c1d84732edea282d6ec59a0adf108cd"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_f2b482427e212b1145236ff75ec8d6eb283e94f8161ec2e8d5d27e10ac3b0121",
+          "extracted_json": "{\"lymph_nodes\":\"no_suspicious\",\"nodules\":[{\"composition\":\"not_mentioned\",\"dimensions_mm\":[11.2,8.7],\"echogenic_foci\":\"comet_tail\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"ill_defined\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"not_mentioned\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺左叶上部探及一枚低回声结节，大小约11.2×8.7mm，内见彗尾征，呈非高于宽形，边界欠清。颈部未见明显可疑淋巴结。",
+          "semantic_case_id": "sc_f930bdc54d784999a0fb851fd9fb95b7818384701bb84e42060c4c98b80e7e16"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_fba6d08ca70e874b474c19e8a83d578177ca94838be59fcf38141343f5badcde",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"mixed_cystic_solid\",\"dimensions_mm\":[15.2,17.5],\"echogenic_foci\":\"none\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"middle\",\"side\":\"left\"},\"margin\":\"lobulated_or_irregular\",\"nodule_id\":\"n1\",\"shape\":\"taller_than_wide\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺左叶中部探及一枚囊实性结节，CDFI示结节内及周边未见明显血流信号，大小约15.2×17.5mm，内未见明显强回声，呈高于宽形，边缘分叶或不规则。",
+          "semantic_case_id": "sc_bbd58e75a73cc4692fadf7f22a3f5a86fb380d8ec2f995d7ab9660cc8ef975a3"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_69392727fec501d27d880d0c99cfc31650becc06d15d760109d05386f3c9750f",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"mixed_cystic_solid\",\"dimensions_mm\":[30.9,20.4],\"echogenic_foci\":\"peripheral_calcification\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"lower\",\"side\":\"right\"},\"margin\":\"ill_defined\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"internal\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶下部探及一枚囊实性低回声结节，CDFI示内部可见血流信号，大小约30.9×20.4mm，周边见环形钙化，呈非高于宽形，边界欠清。",
+          "semantic_case_id": "sc_72f5bc606399cd307d2cfecb7fd71592573087dd8ea0aa8b818530fc55a84a18"
+        }
+      ],
+      "fields": {
+        "hallucinated_count": 0,
+        "hallucination_rate": 0.0,
+        "mentioned_accuracy": 1.0,
+        "mentioned_count": 3691,
+        "per_field": {
+          "composition": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 456
+          },
+          "echogenic_foci": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 401
+          },
+          "echogenicity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 430
+          },
+          "location_segment": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 441
+          },
+          "location_side": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 485
+          },
+          "lymph_nodes": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 218
+          },
+          "margin": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 429
+          },
+          "shape": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 435
+          },
+          "vascularity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 396
+          }
+        },
+        "unstated_count": 809
+      },
+      "generation_error_rate": 0.0,
+      "parseable_rate": 1.0,
+      "sample_count": 500,
+      "split": "test_heldout_templates",
+      "teacher_forced": {
+        "loss": null,
+        "target_token_count": 0,
+        "token_accuracy": null
+      },
+      "template_exact_match": {
+        "any_family_rate": 0.0,
+        "family_counts": {
+          "descriptor_first_v2": 0,
+          "dimensions_first_v2": 0,
+          "flow_first_v2": 0,
+          "location_first_v2": 0,
+          "none": 500
+        }
+      }
+    },
+    "test_seen_templates": {
+      "dimensions": {
+        "comparable_count": 1398,
+        "count_match_rate": 1.0,
+        "exact_match_rate": 1.0,
+        "mean_abs_error_mm": 0.0,
+        "tolerance_mm": 0.05,
+        "tolerant_match_rate": 1.0
+      },
+      "eos_finished_rate": 1.0,
+      "exact_match_rate": 0.61,
+      "exact_structure_match_rate": 0.61,
+      "failure_example_count": 585,
+      "failure_examples": [
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_498503c128cdcb734383a66582ffb142d68d24e8e648272aa1fdeca27d0595c3",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.6,13.9],\"echogenic_foci\":\"macrocalcification\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"internal\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺左叶上部见一枚实性结节，大小约18.6×13.9mm，呈非高于宽形，内见粗大钙化，CDFI示内部可见血流信号。",
+          "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_32c74e54bec113d3fca62a9b61ff7d5101b5ac9c01b8abf15c4020d1037bd73f",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.6,13.9],\"echogenic_foci\":\"macrocalcification\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"internal\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "可见一枚实性结节，位于甲状腺左叶上部，呈非高于宽形，大小约18.6×13.9mm，CDFI示内部可见血流信号，内见粗大钙化。",
+          "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_b117346a0e64eb2dddbec03a1371a0a930ff37246fb80ee339cbd970bcce8f19",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.6,13.9],\"echogenic_foci\":\"macrocalcification\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"upper\",\"side\":\"left\"},\"margin\":\"not_mentioned\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"internal\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "一枚约18.6×13.9mm的实性结节位于甲状腺左叶上部，内见粗大钙化，CDFI示内部可见血流信号，呈非高于宽形。",
+          "semantic_case_id": "sc_2717c8c87a7142b80f76af912a7edb5a54e09efd12e72626d06d89bc83b0ea53"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_0074204b1e8b76b2f063edb58593bcf95d62d18d89ae82b1f5b6f056612573b3",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.7,15.1,18.9],\"echogenic_foci\":\"none\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"not_mentioned\",\"side\":\"not_mentioned\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺内见一枚实性结节，大小约18.7×15.1×18.9mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。",
+          "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_d3649b565bf1bfb3e1a5ad6f2b7fc4639f84ec4c618e51f4615ace50b0fba549",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.7,15.1,18.9],\"echogenic_foci\":\"none\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"not_mentioned\",\"side\":\"not_mentioned\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "可见一枚实性结节，位于甲状腺内，边缘光滑，呈非高于宽形，大小约18.7×15.1×18.9mm，CDFI示结节内及周边未见明显血流信号，内未见明显强回声。",
+          "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_d5dedd1def82dba6fc67bd610e96e95c4bef0750de6aea1af72f809d0939e261",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[18.7,15.1,18.9],\"echogenic_foci\":\"none\",\"echogenicity\":\"not_mentioned\",\"location\":{\"segment\":\"not_mentioned\",\"side\":\"not_mentioned\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "一枚约18.7×15.1×18.9mm的实性结节位于甲状腺内，内未见明显强回声，边缘光滑，CDFI示结节内及周边未见明显血流信号，呈非高于宽形。",
+          "semantic_case_id": "sc_ab0beb9093f48ebd3b395a1c63c7d344db78cc047d775e01181ad3a13e77af87"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_4213606a33882b7216c5f8dbb697ccbacc363749be6bd2d933a1646eeed3bb13",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"cystic\",\"dimensions_mm\":[28.7,27.0],\"echogenic_foci\":\"none\",\"echogenicity\":\"anechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "甲状腺右叶上部见一枚囊性无回声结节，大小约28.7×27mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。",
+          "semantic_case_id": "sc_a7b5f6c4c08c9b3b3e28420cd38ec00ada733db4cc312f0118cbc36ad048e7ee"
+        },
+        {
+          "exact_structure_match": false,
+          "example_id": "sample_da667aad6b0794b97a7ea70938b2b30fcc395372c290128f24a9f50c781d9a36",
+          "extracted_json": "{\"lymph_nodes\":\"not_mentioned\",\"nodules\":[{\"composition\":\"cystic\",\"dimensions_mm\":[28.7,27.0],\"echogenic_foci\":\"none\",\"echogenicity\":\"anechoic\",\"location\":{\"segment\":\"upper\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+          "parseable": true,
+          "reference_text": "可见一枚囊性无回声结节，位于甲状腺右叶上部，边缘光滑，呈非高于宽形，大小约28.7×27mm，CDFI示结节内及周边未见明显血流信号，内未见明显强回声。",
+          "semantic_case_id": "sc_a7b5f6c4c08c9b3b3e28420cd38ec00ada733db4cc312f0118cbc36ad048e7ee"
+        }
+      ],
+      "fields": {
+        "hallucinated_count": 0,
+        "hallucination_rate": 0.0,
+        "mentioned_accuracy": 1.0,
+        "mentioned_count": 11073,
+        "per_field": {
+          "composition": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1368
+          },
+          "echogenic_foci": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1203
+          },
+          "echogenicity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1290
+          },
+          "location_segment": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1323
+          },
+          "location_side": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1455
+          },
+          "lymph_nodes": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 654
+          },
+          "margin": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1287
+          },
+          "shape": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1305
+          },
+          "vascularity": {
+            "accuracy": 1.0,
+            "hallucinated_count": 0,
+            "mentioned_count": 1188
+          }
+        },
+        "unstated_count": 2427
+      },
+      "generation_error_rate": 0.0,
+      "parseable_rate": 1.0,
+      "sample_count": 1500,
+      "split": "test_seen_templates",
+      "teacher_forced": {
+        "loss": null,
+        "target_token_count": 0,
+        "token_accuracy": null
+      },
+      "template_exact_match": {
+        "any_family_rate": 0.0,
+        "family_counts": {
+          "descriptor_first_v2": 0,
+          "dimensions_first_v2": 0,
+          "flow_first_v2": 0,
+          "location_first_v2": 0,
+          "none": 1500
+        }
+      }
+    }
+  }
+}

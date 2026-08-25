@@ -39,6 +39,22 @@ class CausalLMBatch:
         )
 
 
+def build_generate_prompt_ids(
+    input_text: str, tokenizer: SonoTokenizer
+) -> list[int]:
+    """Encode the generate-task prompt up to and including `<target>`."""
+
+    return (
+        [
+            tokenizer.bos_id,
+            tokenizer.task_generate_id,
+            tokenizer.input_id,
+        ]
+        + tokenizer.encode(input_text)
+        + [tokenizer.target_id]
+    )
+
+
 def encode_generate_sample(
     sample: GeneratedSample,
     tokenizer: SonoTokenizer,
@@ -49,15 +65,7 @@ def encode_generate_sample(
 
     if sample.task != "generate":
         raise ValueError("only the generate task is supported in V1")
-    prompt_ids = (
-        [
-            tokenizer.bos_id,
-            tokenizer.task_generate_id,
-            tokenizer.input_id,
-        ]
-        + tokenizer.encode(sample.input)
-        + [tokenizer.target_id]
-    )
+    prompt_ids = build_generate_prompt_ids(sample.input, tokenizer)
     target_ids = tokenizer.encode(sample.target) + [tokenizer.eos_id]
     input_ids = tuple(prompt_ids + target_ids)
     if len(input_ids) > max_seq_len:

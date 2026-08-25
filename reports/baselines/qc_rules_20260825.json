@@ -1,0 +1,113 @@
+{
+  "challenge_freeze_id": "simulated_human_challenge_v1",
+  "clean_splits": {
+    "fixtures": {
+      "false_error_count": 0,
+      "false_error_examples": [],
+      "mean_errors": 0.0,
+      "mean_warnings": 0.5,
+      "pass_rate": 1.0,
+      "sample_count": 50
+    },
+    "simulated_human_challenge": {
+      "false_error_count": 0,
+      "false_error_examples": [],
+      "mean_errors": 0.0,
+      "mean_warnings": 0.0,
+      "pass_rate": 1.0,
+      "sample_count": 30
+    },
+    "test_heldout_templates": {
+      "false_error_count": 0,
+      "false_error_examples": [],
+      "mean_errors": 0.0,
+      "mean_warnings": 0.0,
+      "pass_rate": 1.0,
+      "sample_count": 500
+    },
+    "test_seen_templates": {
+      "false_error_count": 0,
+      "false_error_examples": [],
+      "mean_errors": 0.0,
+      "mean_warnings": 0.0,
+      "pass_rate": 1.0,
+      "sample_count": 1500
+    }
+  },
+  "created_at_utc": "2026-08-25T02:32:26.706842+00:00",
+  "evaluation_task": "qc",
+  "evaluation_version": "1.0.0",
+  "freeze_id": "synthetic_v1_5k_frozen_v1",
+  "freeze_record_sha256": "0947163809972d3e6d5db5ea0e8957c13f6f514e778743faf66c240a9f7bd58a",
+  "injected_defects": {
+    "case_count": 220,
+    "macro_recall": 1.0,
+    "micro_recall": 1.0,
+    "per_defect": {
+      "diagnostic_language": {
+        "expected_rule": "QC.DIAGNOSTIC_LANGUAGE",
+        "recall": 1.0,
+        "support": 20
+      },
+      "dimension_mismatch": {
+        "expected_rule": "QC.TEXT_DIMENSION_MISMATCH",
+        "recall": 1.0,
+        "support": 20
+      },
+      "laterality_mismatch": {
+        "expected_rule": "QC.TEXT_LOCATION_MISMATCH",
+        "recall": 1.0,
+        "support": 20
+      },
+      "missing_composition": {
+        "expected_rule": "QC.TEXT_OMITS_STATED_COMPOSITION",
+        "recall": 1.0,
+        "support": 20
+      },
+      "missing_echogenicity": {
+        "expected_rule": "QC.TEXT_OMITS_STATED_ECHOGENICITY",
+        "recall": 1.0,
+        "support": 20
+      },
+      "missing_foci": {
+        "expected_rule": "QC.TEXT_OMITS_STATED_FOCI",
+        "recall": 1.0,
+        "support": 20
+      },
+      "missing_margin": {
+        "expected_rule": "QC.TEXT_OMITS_STATED_MARGIN",
+        "recall": 1.0,
+        "support": 20
+      },
+      "missing_shape": {
+        "expected_rule": "QC.TEXT_OMITS_STATED_SHAPE",
+        "recall": 1.0,
+        "support": 20
+      },
+      "negation_mislabeled": {
+        "expected_rule": "QC.STRUCTURE_NEGATION_MISLABEL",
+        "recall": 1.0,
+        "support": 20
+      },
+      "text_contradiction": {
+        "expected_rule": "QC.TEXT_FIELD_CONTRADICTION",
+        "recall": 1.0,
+        "support": 20
+      },
+      "unit_mixed": {
+        "expected_rule": "QC.UNIT_MIXED_MM_CM",
+        "recall": 1.0,
+        "support": 20
+      }
+    }
+  },
+  "limit_per_split": null,
+  "notes": [
+    "QC rules are engineering checks, not diagnostic criteria.",
+    "Clean-split errors are false positives against gold structure.",
+    "Injected defects measure recall of the expected rule ID.",
+    "Challenge metrics are reported separately."
+  ],
+  "rules_version": "1.0.0",
+  "smoke_template_roundtrip_passed": true
+}

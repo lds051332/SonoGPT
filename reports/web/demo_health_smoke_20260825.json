@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "clinical_use": false,
+  "web_demo_version": "1.0.0",
+  "checkpoint_ready": true,
+  "checkpoint_name": "step_00004900.pt",
+  "device": "cuda",
+  "model_loaded": true
+}

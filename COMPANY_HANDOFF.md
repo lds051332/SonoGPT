@@ -1,7 +1,7 @@
 # 公司电脑交接说明
 
-> 日期：2026-08-24  
-> 目的：把家中已完成的正式训练接到公司 GTX 1650 上继续评估  
+> 日期：2026-08-25  
+> 目的：把家中已完成的正式训练接到公司 GTX 1650 上继续评估与推理  
 > 不要在公司重新训练 5000 Step
 
 ## 1. GitHub 能拿到什么
@@ -98,13 +98,24 @@ uv run python scripts/build_simulated_challenge.py --verify
 
 GTX 1650 可以做评估和推理。15M 模型峰值训练显存约 632 MiB，4 GB 显存足够。不要在公司重跑 5000 Step 正式训练。
 
-## 4. 下一步任务
+## 4. 公司机已完成的任务
 
 1. 实现评估脚本：已见模板、留出模板、模拟挑战集。
 2. 报告 JSON 可解析率、字段级指标、尺寸误差、模板泄漏和挑战集表现。
-3. 比较 `step_00004900.pt` 与 `step_00005000.pt`。
-4. 增加规则抽取与质控基线。
-5. 增加推理 CLI。
+3. 比较 `step_00004900.pt` 与 `step_00005000.pt`；继续默认使用 4900。
+4. 增加规则抽取与质控基线，并写出 `reports/baselines/`。
+5. 增加推理 CLI，冒烟写入 `reports/inference/`。
+6. 增加本地网页 Demo，冒烟写入 `reports/web/`。
+
+对应文档：`docs/evaluation.md`、`docs/baselines.md`、`docs/inference.md`、`docs/web.md`。
+
+## 4.1 下一步（可选）
+
+1. 学习曲线实验（不要覆盖 `synthetic_v1_5k_frozen_v1`）。
+2. 用 Django 做可对外的前后台（上云是后一步；本地 Demo 已用 FastAPI 常驻模型）。
+3. 真人独立编写临床挑战集（禁止进入训练）。
+
+不要重跑 5000 Step，不要覆盖冻结数据、Tokenizer、挑战集或正式 Checkpoint。
 
 ## 5. Cursor 提示词
 

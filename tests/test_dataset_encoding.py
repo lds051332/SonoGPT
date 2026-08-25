@@ -5,6 +5,7 @@ import pytest
 from sonogpt.data.dataset import (
     IGNORE_INDEX,
     SequenceTooLongError,
+    build_generate_prompt_ids,
     collate_encoded_samples,
     encode_generate_sample,
 )
@@ -35,6 +36,9 @@ def test_generate_encoding_masks_prompt_and_keeps_target() -> None:
     assert encoded.labels[encoded.target_start] == tokenizer.encode(sample.target)[0]
     assert encoded.input_ids[-1] == tokenizer.eos_id
     assert encoded.labels[-1] == tokenizer.eos_id
+    assert encoded.input_ids[: encoded.target_start] == tuple(
+        build_generate_prompt_ids(sample.input, tokenizer)
+    )
 
 
 def test_encoder_refuses_to_silently_truncate() -> None:

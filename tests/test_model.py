@@ -2,10 +2,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
 import torch
 
 from sonogpt.model.config import SonoGPTConfig
-from sonogpt.model.gpt import SonoGPT
+from sonogpt.model.gpt import GenerationLimitError, SonoGPT
 
 CANDIDATE_CONFIG_PATH = (
     Path(__file__).resolve().parents[1]
@@ -80,6 +81,19 @@ def test_greedy_generation_stops_at_eos() -> None:
     )
 
     assert generated.tolist() == [[1, 2, 3, 0]]
+
+
+def test_greedy_generation_refuses_silent_truncation() -> None:
+    model = SonoGPT(_config()).eval()
+    for parameter in model.parameters():
+        parameter.data.zero_()
+
+    with pytest.raises(GenerationLimitError, match="max_seq_len"):
+        model.generate(
+            torch.tensor([[1, 2, 3]]),
+            max_new_tokens=40,
+            eos_id=1,
+        )
 
 
 def test_saved_state_restores_identical_logits(tmp_path: Path) -> None:

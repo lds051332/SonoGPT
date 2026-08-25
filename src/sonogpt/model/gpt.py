@@ -14,6 +14,10 @@ from sonogpt.model.config import SonoGPTConfig
 IGNORE_INDEX = -100
 
 
+class GenerationLimitError(ValueError):
+    """Raised instead of silently truncating a generated sequence."""
+
+
 @dataclass(frozen=True)
 class CausalLMOutput:
     logits: torch.Tensor
@@ -104,13 +108,18 @@ class SonoGPT(nn.Module):
 
         if input_ids.ndim != 2:
             raise ValueError("input_ids must have shape [batch, sequence]")
+        if max_new_tokens <= 0:
+            raise ValueError("max_new_tokens must be positive")
         generated = input_ids
         finished = torch.zeros(
             input_ids.shape[0], dtype=torch.bool, device=input_ids.device
         )
         for _ in range(max_new_tokens):
             if generated.shape[1] >= self.config.max_seq_len:
-                break
+                raise GenerationLimitError(
+                    "generation would exceed max_seq_len "
+                    f"{self.config.max_seq_len}"
+                )
             next_logits = self(generated).logits[:, -1, :]
             next_ids = torch.argmax(next_logits, dim=-1)
             next_ids = torch.where(
@@ -122,6 +131,10 @@ class SonoGPT(nn.Module):
             finished |= next_ids == eos_id
             if bool(torch.all(finished)):
                 break
+        if not bool(torch.all(finished)):
+            raise GenerationLimitError(
+                "generation ended without producing EOS"
+            )
         return generated
 
     def count_parameters(self, *, trainable_only: bool = True) -> int:

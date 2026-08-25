@@ -1,0 +1,64 @@
+{
+  "canonical_json": "{\"lymph_nodes\":\"no_suspicious\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[8.0,6.0],\"echogenic_foci\":\"none\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"middle\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+  "checkpoint_sha256": "497ee0595eb95d04774d8a36f11f38a404c37e0376418502ae6eb3f6b06651b3",
+  "elapsed_seconds": 1.7509879999997793,
+  "eos_finished": true,
+  "exam": {
+    "lymph_nodes": "no_suspicious",
+    "nodules": [
+      {
+        "composition": "solid",
+        "dimensions_mm": [
+          8.0,
+          6.0
+        ],
+        "echogenic_foci": "none",
+        "echogenicity": "hypoechoic",
+        "location": {
+          "segment": "middle",
+          "side": "right"
+        },
+        "margin": "smooth",
+        "nodule_id": "n1",
+        "shape": "wider_than_tall",
+        "vascularity": "none"
+      }
+    ],
+    "organ": "thyroid",
+    "schema_version": "1.0.0"
+  },
+  "fallback_reason": null,
+  "freeze_record_sha256": "0947163809972d3e6d5db5ea0e8957c13f6f514e778743faf66c240a9f7bd58a",
+  "generation_error": null,
+  "info": {
+    "checkpoint_name": "step_00004900.pt",
+    "clinical_use": false,
+    "device": "cuda",
+    "extract_task_trained": false,
+    "extractor_version": "1.0.0",
+    "freeze_id": "synthetic_v1_5k_frozen_v1",
+    "generate_task_trained": true,
+    "inference_version": "1.0.0",
+    "intended_use": "learning_demo_only",
+    "package_version": "0.1.0",
+    "parameter_count": 15003648,
+    "qc_rules_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "tokenizer_sha256": "743af34aa2d8bec332f82ce6756cd1458e9687244def23ece5c5b60ee8883ac2"
+  },
+  "model_used": true,
+  "notes": [
+    "Template fallback is used when greedy generation fails QC errors.",
+    "Not for clinical diagnosis."
+  ],
+  "qc": {
+    "error_count": 0,
+    "findings": [],
+    "passed": true,
+    "rules_version": "1.0.0",
+    "warning_count": 0
+  },
+  "report": "甲状腺右叶中部见一枚实性低回声结节，大小约8×6mm，呈非高于宽形，边缘光滑，内未见明显强回声，CDFI示结节内及周边未见明显血流信号。颈部未见明显可疑淋巴结。",
+  "task": "generate",
+  "used_fallback": false
+}

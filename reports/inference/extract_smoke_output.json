@@ -1,0 +1,59 @@
+{
+  "canonical_json": "{\"lymph_nodes\":\"no_suspicious\",\"nodules\":[{\"composition\":\"solid\",\"dimensions_mm\":[8.0,6.0],\"echogenic_foci\":\"none\",\"echogenicity\":\"hypoechoic\",\"location\":{\"segment\":\"middle\",\"side\":\"right\"},\"margin\":\"smooth\",\"nodule_id\":\"n1\",\"shape\":\"wider_than_tall\",\"vascularity\":\"none\"}],\"organ\":\"thyroid\",\"schema_version\":\"1.0.0\"}",
+  "elapsed_seconds": 0.000477000000046246,
+  "exam": {
+    "lymph_nodes": "no_suspicious",
+    "nodules": [
+      {
+        "composition": "solid",
+        "dimensions_mm": [
+          8.0,
+          6.0
+        ],
+        "echogenic_foci": "none",
+        "echogenicity": "hypoechoic",
+        "location": {
+          "segment": "middle",
+          "side": "right"
+        },
+        "margin": "smooth",
+        "nodule_id": "n1",
+        "shape": "wider_than_tall",
+        "vascularity": "none"
+      }
+    ],
+    "organ": "thyroid",
+    "schema_version": "1.0.0"
+  },
+  "extractor": "rule_extract",
+  "info": {
+    "checkpoint_name": "step_00004900.pt",
+    "clinical_use": false,
+    "device": "cuda",
+    "extract_task_trained": false,
+    "extractor_version": "1.0.0",
+    "freeze_id": "synthetic_v1_5k_frozen_v1",
+    "generate_task_trained": true,
+    "inference_version": "1.0.0",
+    "intended_use": "learning_demo_only",
+    "package_version": "0.1.0",
+    "parameter_count": null,
+    "qc_rules_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "tokenizer_sha256": "743af34aa2d8bec332f82ce6756cd1458e9687244def23ece5c5b60ee8883ac2"
+  },
+  "model_used": false,
+  "notes": [
+    "V1 did not train an extract-task model; this path uses rules only.",
+    "Not for clinical diagnosis."
+  ],
+  "parseable": true,
+  "qc": {
+    "error_count": 0,
+    "findings": [],
+    "passed": true,
+    "rules_version": "1.0.0",
+    "warning_count": 0
+  },
+  "task": "extract"
+}
