@@ -169,15 +169,24 @@ server {
 当前公网 Demo：[http://39.107.227.41/](http://39.107.227.41/)  
 目录 `/home/devman/SonoGPT`，systemd 服务 `sonogpt-demo.service`。进程监听 `8000`，外网 80 经 iptables 转到 8000。GitLab 在 8099，不要改那个容器。
 
-只改了网页静态文件时，刷新浏览器即可（每次请求读磁盘）。改了 Python 代码、依赖或权重后必须重启：
+包装必须是可编辑安装（指向仓库 `src/`）。若装成 `.venv` 里的拷贝，`git pull` 改不到正在跑的网页。
+
+```bash
+cd /tmp
+uv pip install --python /home/devman/SonoGPT/.venv/bin/python --no-deps -e /home/devman/SonoGPT
+```
+
+更新：
 
 ```bash
 ssh devman@39.107.227.41
 cd /home/devman/SonoGPT
-# 拷入新源码或产物后：
+git pull
 sudo systemctl restart sonogpt-demo.service
 sudo systemctl status sonogpt-demo.service --no-pager
 ```
+
+只改了 HTML / Logo 时，硬刷新浏览器即可（Ctrl+F5）。改了 Python、依赖或权重后必须重启。
 
 看日志：
 
