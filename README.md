@@ -86,7 +86,7 @@ uv run python scripts/infer.py qc --text-file report.txt --json-file exam.json
 uv run python scripts/serve_demo.py --device cuda
 ```
 
-浏览器打开 http://127.0.0.1:8000/ 。左侧是单结节表单（不是聊天框），右侧是模型报告、质控和规则抽取对照。说明见 `docs/web.md`。默认只监听本机，不上云。
+浏览器打开 http://127.0.0.1:8000/ 。上方是单结节表单（不是聊天框），下方是模型报告、质控和规则抽取对照。说明见 `docs/web.md`。默认只监听本机，不上云。
 
 ## 下一步（可选）
 

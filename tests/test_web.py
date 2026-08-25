@@ -86,6 +86,9 @@ def test_index_page_has_disclaimer() -> None:
     assert response.status_code == 200
     assert "不能用于临床诊断" in response.text
     assert "生成报告" in response.text
+    assert "flex-direction: column" in response.text
+    assert "上方填结构化所见" in response.text
+    assert "左侧填结构化所见" not in response.text
 
 
 def test_meta_and_health_do_not_load_checkpoint() -> None:
