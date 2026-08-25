@@ -248,7 +248,8 @@ def evaluate_examples(
 def _require_existing(path: Path, description: str) -> Path:
     if not path.is_file():
         raise FileNotFoundError(
-            f"{description} is missing: {path}. Copy it using COMPANY_HANDOFF.md."
+            f"{description} is missing: {path}. "
+            "Place local artifacts under artifacts/ and data/processed/ (not stored in Git)."
         )
     return path
 

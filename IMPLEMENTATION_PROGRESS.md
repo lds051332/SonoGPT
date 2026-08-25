@@ -988,8 +988,8 @@ artifacts/training/sonogpt_16m_m3/step_00005000.pt
 
 机器可读摘要：`reports/training/sonogpt_16m_m3_5000step_20260824.json`。
 
-换电脑继续开发时，GitHub 只包含源码和冻结记录。Tokenizer、生成数据和 Checkpoint 需要按
-`COMPANY_HANDOFF.md` 手工拷贝。公司 GTX 1650 足够做评估和推理，不要重跑正式训练。
+换电脑继续开发时，GitHub 只包含源码和冻结记录。Tokenizer、生成数据和 Checkpoint 需要手工放到
+`artifacts/` 与 `data/processed/`（不进 Git）。公司 GTX 1650 足够做评估和推理，不要重跑正式训练。
 
 ### 27. 补齐交接文档
 
@@ -1001,6 +1001,8 @@ COMPANY_HANDOFF.md
 CURSOR_PROMPT.md
 reports/training/sonogpt_16m_m3_5000step_20260824.json
 ```
+
+上述交接文档后来已移出 Git，仅保留在本机 `archive/`。
 
 ### 28. 完成冻结三集 generate 评估
 

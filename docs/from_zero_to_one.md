@@ -9,7 +9,6 @@
 | 想查什么 | 去哪 |
 | --- | --- |
 | 当前实现进度与实测数字 | 仓库根目录 [`IMPLEMENTATION_PROGRESS.md`](../IMPLEMENTATION_PROGRESS.md) |
-| 当初为什么这样设计 | [`SONOGPT_ARCHITECTURE_DESIGN.md`](../SONOGPT_ARCHITECTURE_DESIGN.md) |
 | 评估数字怎么读 | [`evaluation.md`](evaluation.md) |
 | 规则 / 模板 / 质控 | [`baselines.md`](baselines.md) |
 | CLI / 网页 | [`inference.md`](inference.md)、[`web.md`](web.md) |
@@ -142,7 +141,7 @@ baselines/                 模板 / 抽取 / 质控对照
 - Python **3.12**（`.python-version`），包布局是 `src/sonogpt/`，避免脚本从仓库根目录误导入。
 - 依赖用 [uv](https://docs.astral.sh/uv/) 锁定：`pyproject.toml` + `uv.lock`。
 - Windows / Linux 安装 `torch 2.12.0+cu126`；没有 NVIDIA 驱动时，规则抽取、质控和测试仍可在 CPU 上跑。
-- `.gitignore` 排除 `artifacts/`、`data/processed/`、虚拟环境和缓存。Git 里保留源码、Schema、manifest、冻结记录和评估报告。
+- `.gitignore` 排除 `artifacts/`、`data/processed/`、`archive/`、虚拟环境和缓存。Git 里保留源码、Schema、manifest、冻结记录和评估报告。
 
 ### 跟练
 
@@ -153,7 +152,13 @@ uv sync --extra dev
 uv run pytest
 ```
 
-测试通过只说明**代码契约**成立，不说明你已经有 Tokenizer 和 Checkpoint。缺权重时：模板渲染、规则抽取、大部分单测仍然可用；模型生成需要按 [`COMPANY_HANDOFF.md`](../COMPANY_HANDOFF.md) 放置本地产物。
+测试通过只说明**代码契约**成立，不说明你已经有 Tokenizer 和 Checkpoint。缺权重时：模板渲染、规则抽取、大部分单测仍然可用。模型生成需要在本机放置（均不进 Git）：
+
+| 产物 | 路径 |
+| --- | --- |
+| Tokenizer | `artifacts/tokenizers/sonogpt_bpe_1807_candidate_v2/` |
+| 冻结 JSONL | `data/processed/synthetic_v1_5k_candidate_v2/` |
+| 默认 Checkpoint | `artifacts/training/sonogpt_16m_m3/step_00004900.pt` |
 
 ### 该读的文件
 

@@ -102,7 +102,7 @@ class InferenceEngine:
             if not self.checkpoint_path.is_file():
                 raise FileNotFoundError(
                     f"checkpoint is missing: {self.checkpoint_path}. "
-                    "Copy it using COMPANY_HANDOFF.md."
+                    "Place it under artifacts/training/ (not stored in Git)."
                 )
             self._model, self._checkpoint_payload = load_model_for_evaluation(
                 self.checkpoint_path,

@@ -80,7 +80,13 @@ uv run pytest
 
 Windows / Linux installs `torch 2.12.0+cu126`. Without an NVIDIA driver, rule extraction, QC, and tests still run on CPU.
 
-This repository includes source, schema, freeze records, evaluation reports, and docs. The tokenizer, synthetic JSONL, and checkpoints are large and are not stored in Git. Template rendering and extraction still work without weights; model generation needs `artifacts/` and `data/processed/` in the local layout.
+This repository includes source, schema, freeze records, evaluation reports, and docs. The tokenizer, synthetic JSONL, and checkpoints are large and are not stored in Git. Template rendering and extraction still work without weights; model generation needs these local paths:
+
+```text
+artifacts/tokenizers/sonogpt_bpe_1807_candidate_v2/
+data/processed/synthetic_v1_5k_candidate_v2/
+artifacts/training/sonogpt_16m_m3/step_00004900.pt
+```
 
 Local web UI (a Schema form, not a chat box):
 

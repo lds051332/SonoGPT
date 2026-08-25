@@ -12,8 +12,7 @@ SonoGPT 是学习 Demo，不是临床系统。实现进度以仓库根目录的 
 | `inference.md` | 本地 CLI、generate/extract/qc 差异、模板回退 |
 | `web.md` | 本地网页 Demo：表单输入、启动方式、HTTP 接口 |
 
-交接与环境：
+环境：
 
 - `README.md`：当前状态与常用命令
-- `COMPANY_HANDOFF.md`：换电脑拷贝 Tokenizer / 数据 / Checkpoint
-- `CURSOR_PROMPT.md`：下一轮对话提示词
+- Tokenizer、合成 JSONL、Checkpoint 不进 Git；缺权重时按 `from_zero_to_one.md` 阶段 0 的本地产物路径放置

@@ -576,7 +576,7 @@
       const ready = Boolean(health.checkpoint_ready);
       healthEl.textContent = ready
         ? "Checkpoint 已就绪：" + health.checkpoint_name + " · 设备 " + health.device
-        : "未找到 Checkpoint。模板预览仍可用，生成需要按 COMPANY_HANDOFF.md 拷贝 step_00004900.pt。";
+        : "未找到 Checkpoint。模板预览仍可用；生成需要本地文件 artifacts/training/sonogpt_16m_m3/step_00004900.pt（未纳入 Git）。";
       btnGenerate.disabled = !ready;
       btnGenerate.addEventListener("click", onGenerate);
       btnTemplate.addEventListener("click", onTemplate);

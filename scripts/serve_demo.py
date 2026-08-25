@@ -50,7 +50,7 @@ def main() -> None:
     if not args.checkpoint.is_file():
         print(
             "checkpoint missing; template preview still works. "
-            "Copy weights using COMPANY_HANDOFF.md"
+            "Place step_00004900.pt under artifacts/training/sonogpt_16m_m3/ (not stored in Git)."
         )
     app = create_app(engine, preload=preload)
     print("SonoGPT local demo — not for clinical diagnosis", flush=True)

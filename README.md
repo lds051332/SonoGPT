@@ -80,7 +80,13 @@ uv run pytest
 
 Windows / Linux 会安装 `torch 2.12.0+cu126`。无 NVIDIA 驱动时，规则抽取、质控和测试仍可在 CPU 上运行。
 
-本仓库包含源码、Schema、冻结记录、评估报告和文档。Tokenizer、合成 JSONL 与 Checkpoint 体积较大，未纳入 Git。缺少权重时，规则模板和抽取仍可用；模型生成需要按本地产物路径放置 `artifacts/` 与 `data/processed/`。
+本仓库包含源码、Schema、冻结记录、评估报告和文档。Tokenizer、合成 JSONL 与 Checkpoint 体积较大，未纳入 Git。缺少权重时，规则模板和抽取仍可用；模型生成需要在本机放置：
+
+```text
+artifacts/tokenizers/sonogpt_bpe_1807_candidate_v2/
+data/processed/synthetic_v1_5k_candidate_v2/
+artifacts/training/sonogpt_16m_m3/step_00004900.pt
+```
 
 本地网页（Schema 表单，不是聊天框）：
 
