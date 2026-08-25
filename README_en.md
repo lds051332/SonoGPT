@@ -6,6 +6,8 @@ A from-scratch, lightweight decoder-only Transformer that turns structured findi
 
 Built for learning and engineering demonstration. **This is not a medical device and must not be used for clinical diagnosis, screening, or treatment decisions.**
 
+A Chinese, stage-by-stage walkthrough of the full development loop (schema → data → tokenizer → Transformer → training → evaluation → inference) is in [docs/from_zero_to_one.md](docs/from_zero_to_one.md).
+
 ## What it does
 
 Reporting systems typically need two directions: render findings as a controlled sentence, and recover a checkable structure from that sentence. SonoGPT splits them:
@@ -129,6 +131,7 @@ Supplementary guides are currently in Chinese:
 
 | | |
 | --- | --- |
+| [docs/from_zero_to_one.md](docs/from_zero_to_one.md) | From-zero-to-one learning guide (Chinese) |
 | [docs/evaluation.md](docs/evaluation.md) | How to read the three evaluations, and comparisons to avoid |
 | [docs/baselines.md](docs/baselines.md) | Template, extract, and QC rules |
 | [docs/inference.md](docs/inference.md) | CLI pipeline |

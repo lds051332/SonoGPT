@@ -6,6 +6,8 @@
 
 面向学习与工程演示：**不是医疗器械，不能用于临床诊断、筛查或治疗决策。**
 
+想按开发顺序学完整条链路（Schema → 数据 → Tokenizer → Transformer → 训练 → 评估 → 推理），从 [docs/from_zero_to_one.md](docs/from_zero_to_one.md) 开始。
+
 ## 做什么
 
 医院报告系统通常需要两件事：把所见写成规范句子，以及把句子还原成可校验的结构。SonoGPT 把这两件事拆开：
@@ -127,6 +129,7 @@ data/releases/  数据与挑战集冻结记录
 
 | | |
 | --- | --- |
+| [docs/from_zero_to_one.md](docs/from_zero_to_one.md) | 从 0 到 1：大模型开发全流程学习手册 |
 | [docs/evaluation.md](docs/evaluation.md) | 三套评估如何阅读，以及不应做的对照 |
 | [docs/baselines.md](docs/baselines.md) | 模板、抽取与质控规则 |
 | [docs/inference.md](docs/inference.md) | CLI 处理链 |
