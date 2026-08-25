@@ -164,6 +164,29 @@ server {
 
 页面上有 GitLab（例如 8099）时，给 Demo 另开端口，不要覆盖 GitLab。
 
+## 8. 已部署实例：更新与重启
+
+当前公网 Demo：[http://39.107.227.41/](http://39.107.227.41/)  
+目录 `/home/devman/SonoGPT`，systemd 服务 `sonogpt-demo.service`。进程监听 `8000`，外网 80 经 iptables 转到 8000。GitLab 在 8099，不要改那个容器。
+
+只改了网页静态文件时，刷新浏览器即可（每次请求读磁盘）。改了 Python 代码、依赖或权重后必须重启：
+
+```bash
+ssh devman@39.107.227.41
+cd /home/devman/SonoGPT
+# 拷入新源码或产物后：
+sudo systemctl restart sonogpt-demo.service
+sudo systemctl status sonogpt-demo.service --no-pager
+```
+
+看日志：
+
+```bash
+journalctl -u sonogpt-demo.service -n 50 --no-pager
+```
+
+不要在这台机上直接 `uv sync`。若必须重装依赖，继续用 CPU 轮子（`torch 2.12.0+cpu`），装完再 `restart`。
+
 ## 不要做的事
 
 - 不要在无 GPU 的 Linux 上直接 `uv sync`（会拉 CUDA 轮子）

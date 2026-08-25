@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SonoGPT">
+  <rect width="64" height="64" rx="14" fill="#1c1917"/>
+  <path fill="#0f766e" d="M8 53c3-28 45-28 48 0-12-8-36-8-48 0z"/>
+  <path fill="none" stroke="#115e59" stroke-width="1.35" d="M14 49c5.5-11 30.5-11 36 0"/>
+  <path fill="none" stroke="#115e59" stroke-width="1.35" d="M17.5 44.5c5-9 24-9 29 0"/>
+  <path fill="none" stroke="#115e59" stroke-width="1.35" d="M21 40c4-7 18-7 22 0"/>
+  <g fill="#5eead4">
+    <ellipse cx="26.2" cy="36.2" rx="7.4" ry="9.6"/>
+    <ellipse cx="37.8" cy="36.2" rx="7.4" ry="9.6"/>
+    <rect x="28.4" y="33.2" width="7.2" height="6.4" rx="2"/>
+  </g>
+  <circle cx="40.6" cy="33.4" r="3.3" fill="#ccfbf1"/>
+  <path fill="none" stroke="#99f6e4" stroke-width="1.7" stroke-linecap="round" d="M26.5 52c5.5-5 5.5-5 11 0"/>
+  <path fill="none" stroke="#99f6e4" stroke-width="1.4" stroke-linecap="round" d="M28.8 49.6c3.2-3 3.2-3 6.4 0"/>
+</svg>

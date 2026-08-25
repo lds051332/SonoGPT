@@ -89,6 +89,20 @@ def test_index_page_has_disclaimer() -> None:
     assert "flex-direction: column" in response.text
     assert "上方填结构化所见" in response.text
     assert "左侧填结构化所见" not in response.text
+    assert "/static/logo.png" in response.text
+    assert "https://github.com/lds051332/SonoGPT" in response.text
+    assert 'rel="icon"' in response.text
+
+
+def test_branding_assets_are_served() -> None:
+    client = _client()
+    logo = client.get("/static/logo.png")
+    favicon = client.get("/favicon.ico")
+    mark = client.get("/static/favicon.svg")
+    assert logo.status_code == 200
+    assert logo.headers["content-type"].startswith("image/")
+    assert favicon.status_code == 200
+    assert mark.status_code == 200
 
 
 def test_meta_and_health_do_not_load_checkpoint() -> None:

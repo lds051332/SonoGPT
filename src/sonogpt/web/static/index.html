@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SonoGPT 本地演示</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/static/logo.png">
   <style>
     :root {
       --ink: #1c1917;
@@ -36,6 +40,25 @@
       padding: 1.25rem 1.5rem 1.1rem;
       border-bottom: 4px solid var(--teal);
     }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+    .brand img.logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      background: #0c0a09;
+    }
     header .kicker {
       letter-spacing: 0.12em;
       font-size: 0.72rem;
@@ -43,11 +66,31 @@
       text-transform: uppercase;
     }
     header h1 {
-      margin: 0.2rem 0 0.35rem;
+      margin: 0.15rem 0 0;
       font-size: 1.65rem;
       font-weight: 650;
     }
-    header p { margin: 0; color: #d6d3d1; font-size: 0.95rem; max-width: 52rem; }
+    header p { margin: 0.55rem 0 0; color: #d6d3d1; font-size: 0.95rem; max-width: 52rem; }
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+      color: #99f6e4;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 650;
+      border: 1px solid #44403c;
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+    }
+    .github-link:hover,
+    .github-link:focus-visible {
+      background: #292524;
+      border-color: #99f6e4;
+      outline: none;
+    }
+    .github-link svg { display: block; }
     .disclaimer {
       background: var(--warn-bg);
       color: var(--warn-ink);
@@ -179,6 +222,7 @@
     }
     @media (max-width: 560px) {
       #exam-form { grid-template-columns: 1fr; }
+      .header-top { flex-wrap: wrap; }
     }
     .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.8rem 0; }
     .badge {
@@ -217,13 +261,27 @@
       color: var(--muted);
       font-size: 0.82rem;
     }
+    footer a { color: var(--teal); }
     .error { color: var(--bad-ink); font-size: 0.88rem; margin-top: 0.6rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="kicker">Local demo · 16M from scratch</div>
-    <h1>SonoGPT</h1>
+    <div class="header-top">
+      <div class="brand">
+        <img class="logo" src="/static/logo.png" width="56" height="56" alt="SonoGPT">
+        <div>
+          <div class="kicker">Local demo · 16M from scratch</div>
+          <h1>SonoGPT</h1>
+        </div>
+      </div>
+      <a class="github-link" href="https://github.com/lds051332/SonoGPT" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
     <p>从零训练的甲状腺单结节文本模型。上方填结构化所见，下方生成中文报告。不接收超声图像，也不做诊断。</p>
   </header>
   <div class="disclaimer">学习演示，不能用于临床诊断，也不能当作 TI-RADS 或良恶性判断。</div>
@@ -267,6 +325,7 @@
   </main>
   <footer>
     默认 Checkpoint：step_00004900.pt · 冻结：synthetic_v1_5k_frozen_v1 · 本页只绑定 127.0.0.1，不上传数据。
+    · <a href="https://github.com/lds051332/SonoGPT" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>
   </footer>
   <script>
     const formRoot = document.getElementById("exam-form");

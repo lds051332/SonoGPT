@@ -20,6 +20,7 @@ from sonogpt.web.forms import coerce_exam
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 INDEX_HTML = STATIC_DIR / "index.html"
+FAVICON_ICO = STATIC_DIR / "favicon.ico"
 
 
 class DemoRequest(BaseModel):
@@ -62,6 +63,12 @@ def create_app(
         if not INDEX_HTML.is_file():
             raise HTTPException(status_code=500, detail="demo page is missing")
         return FileResponse(INDEX_HTML)
+
+    @app.get("/favicon.ico", include_in_schema=False)
+    def favicon() -> FileResponse:
+        if not FAVICON_ICO.is_file():
+            raise HTTPException(status_code=404, detail="favicon is missing")
+        return FileResponse(FAVICON_ICO, media_type="image/x-icon")
 
     @app.get("/api/health")
     def health() -> dict[str, object]:
