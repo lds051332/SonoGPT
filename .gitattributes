@@ -1,0 +1,3 @@
+# Freeze records hash working-tree bytes. Manifests were frozen on Windows (CRLF).
+# Keep CRLF on checkout so Linux `git pull` does not break freeze verification.
+data/manifests/*.json text eol=crlf
