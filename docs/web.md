@@ -13,7 +13,7 @@ uv run python scripts/serve_demo.py --device cuda
 
 浏览器打开：http://127.0.0.1:8000/
 
-没有 GPU 时用 `--device cpu`。Checkpoint 缺失时页面仍可点「只看模板」，「生成报告」会返回 503，并提示把 `step_00004900.pt` 放到 `artifacts/training/sonogpt_16m_m3/`（该文件不进 Git）。
+没有 GPU 时用 `--device cpu`。无 GPU 的 Linux 安装步骤见 `docs/deploy_cpu.md`（不要直接 `uv sync`，否则会装 CUDA 版 PyTorch）。Checkpoint 缺失时页面仍可点「只看模板」，「生成报告」会返回 503，并提示把 `step_00004900.pt` 放到 `artifacts/training/sonogpt_16m_m3/`（该文件不进 Git）。
 
 | 参数 | 默认 | 含义 |
 | --- | --- | --- |

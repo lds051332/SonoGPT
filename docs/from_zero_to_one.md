@@ -12,6 +12,7 @@
 | 评估数字怎么读 | [`evaluation.md`](evaluation.md) |
 | 规则 / 模板 / 质控 | [`baselines.md`](baselines.md) |
 | CLI / 网页 | [`inference.md`](inference.md)、[`web.md`](web.md) |
+| 无 GPU 的 Linux | [`deploy_cpu.md`](deploy_cpu.md) |
 
 ---
 
@@ -675,7 +676,7 @@ uv run python scripts/infer.py generate --device cuda --json-file reports/infere
 uv run python scripts/serve_demo.py --device cuda
 ```
 
-无 GPU 用 `--device cpu`。缺 Checkpoint 时网页仍可「只看模板」。
+无 GPU 用 `--device cpu`。缺 Checkpoint 时网页仍可「只看模板」。无 GPU 的 Linux 不要直接 `uv sync`（会安装 CUDA 版 PyTorch），见 [`deploy_cpu.md`](deploy_cpu.md)。
 
 ### 该读的文件
 

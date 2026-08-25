@@ -78,7 +78,7 @@ uv sync --extra dev
 uv run pytest
 ```
 
-Windows / Linux installs `torch 2.12.0+cu126`. Without an NVIDIA driver, rule extraction, QC, and tests still run on CPU.
+Windows / Linux installs `torch 2.12.0+cu126`. On Linux without a GPU, do not run plain `uv sync`; follow [docs/deploy_cpu.md](docs/deploy_cpu.md) (Chinese) for the CPU wheel.
 
 This repository includes source, schema, freeze records, evaluation reports, and docs. The tokenizer, synthetic JSONL, and checkpoints are large and are not stored in Git. Template rendering and extraction still work without weights; model generation needs these local paths:
 
@@ -142,6 +142,7 @@ Supplementary guides are currently in Chinese:
 | [docs/baselines.md](docs/baselines.md) | Template, extract, and QC rules |
 | [docs/inference.md](docs/inference.md) | CLI pipeline |
 | [docs/web.md](docs/web.md) | Local web UI and HTTP API |
+| [docs/deploy_cpu.md](docs/deploy_cpu.md) | CPU-only Linux deploy (Chinese) |
 
 ## Limitations
 

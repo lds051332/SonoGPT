@@ -11,8 +11,10 @@ SonoGPT 是学习 Demo，不是临床系统。实现进度以仓库根目录的 
 | `baselines.md` | 模板生成、规则抽取、质控规则版本、指标含义 |
 | `inference.md` | 本地 CLI、generate/extract/qc 差异、模板回退 |
 | `web.md` | 本地网页 Demo：表单输入、启动方式、HTTP 接口 |
+| `deploy_cpu.md` | 无 GPU 的 Linux：CPU 版 PyTorch、产物拷贝、网页启动 |
 
 环境：
 
 - `README.md`：当前状态与常用命令
 - Tokenizer、合成 JSONL、Checkpoint 不进 Git；缺权重时按 `from_zero_to_one.md` 阶段 0 的本地产物路径放置
+- 无 GPU 的 Linux：`docs/deploy_cpu.md`

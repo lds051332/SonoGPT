@@ -94,7 +94,7 @@ artifacts/training/sonogpt_16m_m3/step_00004900.pt
 uv run python scripts/serve_demo.py --device cuda
 ```
 
-打开 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)。默认只监听本机。无 GPU 时使用 `--device cpu`。
+打开 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)。默认只监听本机。无 GPU 的 Linux 不要直接 `uv sync`（会安装 CUDA 版 PyTorch），按 [docs/deploy_cpu.md](docs/deploy_cpu.md) 安装 CPU 轮子并用 `--device cpu`。
 
 命令行：
 
@@ -126,7 +126,7 @@ src/sonogpt/
   inference/    CLI 引擎
   web/          本机 FastAPI Demo
 scripts/        训练、评估、推理与 Demo 入口
-docs/           评估、基线、推理与网页说明
+docs/           评估、基线、推理、网页与 CPU 部署说明
 reports/        可复核的评估与冒烟记录
 data/releases/  数据与挑战集冻结记录
 ```
@@ -140,6 +140,7 @@ data/releases/  数据与挑战集冻结记录
 | [docs/baselines.md](docs/baselines.md) | 模板、抽取与质控规则 |
 | [docs/inference.md](docs/inference.md) | CLI 处理链 |
 | [docs/web.md](docs/web.md) | 本地网页与 HTTP 接口 |
+| [docs/deploy_cpu.md](docs/deploy_cpu.md) | 无 GPU 的 Linux 部署 |
 
 ## 局限
 
