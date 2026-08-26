@@ -8,6 +8,14 @@ Built for learning and engineering demonstration. **This is not a medical device
 
 **Live demo:** [http://39.107.227.41/](http://39.107.227.41/) (CPU inference; generating a report may take several seconds.)
 
+The UI is a Schema form, not a chat box, and it does not upload ultrasound images:
+
+![SonoGPT input form](screenshot/input.png)
+
+Click **生成报告** (Generate report) to get a Chinese draft, QC badges, and a rule-template comparison:
+
+![SonoGPT generated report](screenshot/output.png)
+
 A Chinese, stage-by-stage walkthrough of the full development loop (schema → data → tokenizer → Transformer → training → evaluation → inference) is in [docs/from_zero_to_one.md](docs/from_zero_to_one.md).
 
 ## What it does

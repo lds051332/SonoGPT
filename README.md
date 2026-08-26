@@ -8,6 +8,14 @@
 
 **在线体验：** [http://39.107.227.41/](http://39.107.227.41/)（浏览器打开即可；CPU 推理，生成一条报告可能要数秒。）
 
+输入是 Schema 表单，不是聊天框，也不上传超声图：
+
+![SonoGPT 输入表单](screenshot/input.png)
+
+点「生成报告」后得到中文草稿、质控徽章和规则模板对照：
+
+![SonoGPT 生成结果](screenshot/output.png)
+
 想按开发顺序学完整条链路（Schema → 数据 → Tokenizer → Transformer → 训练 → 评估 → 推理），从 [docs/from_zero_to_one.md](docs/from_zero_to_one.md) 开始。
 
 ## 做什么
